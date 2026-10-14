@@ -109,7 +109,7 @@ export default function WhyChooseUs() {
 
           {/* heading */}
           <h2
-            className={`${playfair.className} text-4xl font-bold leading-[1.15] sm:text-5xl`}
+            className={`${playfair.className} text-3xl md:text-4xl font-bold leading-[1.15]`}
           >
             Designing Spaces
             <br />

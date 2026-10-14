@@ -24,7 +24,7 @@ function SectionTitle({
             }
 
             {
-                <h2 className="mt-4 font-[family-name:var(--font-serif)] text-4xl font-bold leading-tight sm:text-5xl lg:text-5xl">
+                <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl md:text-4xl font-bold leading-tight">
                     {mainTitle}
                 </h2>
             }

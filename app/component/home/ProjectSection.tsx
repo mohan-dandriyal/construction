@@ -161,7 +161,7 @@ export default function ProjectSection() {
                         {slide.eyebrow}
                       </p>
 
-                      <h2 className="mt-6 font-[family-name:var(--font-serif)] text-4xl leading-tight text-white sm:text-5xl lg:text-[64px]">
+                      <h2 className="mt-6 font-[family-name:var(--font-serif)] text-3xl md:text-4xl leading-tight text-white lg:text-[50px]">
                         {slide.title}
                       </h2>
 

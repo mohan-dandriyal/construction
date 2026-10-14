@@ -237,7 +237,7 @@ export default function ProjectShowcase({
           {/* Title */}
           <motion.h2
             variants={rise}
-            className={`${playfair.className} mt-3 text-4xl font-semibold leading-[1.1] sm:text-4.5xl`}
+            className={`${playfair.className} mt-3  font-semibold leading-[1.1] text-3xl md:text-4xl`}
           >
             {titleTop}
 

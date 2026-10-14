@@ -111,7 +111,7 @@ export default function ProjectCard() {
                                     </p>
 
                                     <h2
-                                        className={`${playfair.className} mt-4 text-3xl leading-tight text-white sm:text-4xl`}
+                                        className={`${playfair.className} mt-4 text-2xl leading-tight text-white sm:text-3xl`}
                                     >
                                         {project?.title}
                                     </h2>

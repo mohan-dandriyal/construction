@@ -103,7 +103,7 @@ export default function ProcessSection() {
 
             {i < steps.length - 1 && <Connector />}
 
-            <h3 className="mt-8 font-[family-name:var(--font-serif)] text-3xl font-bold text-white">
+            <h3 className="mt-8 font-[family-name:var(--font-serif)] text-2xl font-bold text-white">
               {title}
             </h3>
             <p className="mt-4 max-w-[330px] text-base font-light leading-8 text-white/70">

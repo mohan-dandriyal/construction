@@ -96,7 +96,7 @@ export default function KeyFeatures({ data = defaultData }) {
             initial={initial}
             whileInView="show"
             viewport={viewport}
-            className={`${playfair.className} mt-4 text-3xl font-semibold leading-tight sm:text-4xl lg:text-4.5xl`}
+            className={`${playfair.className} mt-4 font-semibold leading-tight text-3xl md:text-4xl`}
           >
             {highlightsTitle}{" "}
             <span className="text-[#f0b445]">{highlightsAccent}</span>

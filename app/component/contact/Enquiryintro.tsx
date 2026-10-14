@@ -16,7 +16,7 @@ export default function EnquiryIntro() {
         <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#d4a050]">
           Get in touch
         </p>
-        <h2 className="mt-4 font-[family-name:var(--font-serif)] text-5xl font-semibold leading-[1.15] sm:text-4.5xl">
+        <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl md:text-4xl font-semibold leading-[1.15]">
           <span className="block bg-gradient-to-b from-white to-[#aab0b8] bg-clip-text text-transparent">
             Start Your
           </span>

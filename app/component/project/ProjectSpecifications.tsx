@@ -98,7 +98,7 @@ export default function ProjectSpecifications({ data = defaultData }) {
                                 initial={initial}
                                 whileInView="show"
                                 viewport={viewport}
-                                className={`${playfair.className} mt-3 text-3xl font-semibold leading-tight sm:text-4xl lg:text-4.5xl`}
+                                className={`${playfair.className} mt-3 text-3xl md:text-4xl font-semibold leading-tight`}
                             >
                                 {specsTitle} <span className="text-[#f0b445]">{specsAccent}</span>
                             </motion.h2>

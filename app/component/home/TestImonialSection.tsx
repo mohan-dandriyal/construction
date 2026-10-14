@@ -84,7 +84,7 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="mt-4 font-[family-name:var(--font-serif)] text-4xl font-bold leading-tight sm:text-5xl lg:text-5xl lg:w-5/12 mb-6 sm:w-10/12">
+                <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl md:text-4xl font-bold leading-tight  lg:w-5/12 mb-6 sm:w-10/12">
                     What They’re Talking About{" "}
                     <span style={{ color: GOLD }}>Our Work</span> ?
                 </h2>

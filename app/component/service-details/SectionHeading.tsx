@@ -18,7 +18,7 @@ export default function SectionHeading({ title, accent, variant = "sub", eyebrow
             {eyebrow}
           </span>
         </div>
-        <h1 className="mt-3 font-[family-name:var(--font-serif)] text-4xl font-medium leading-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="mt-3 font-[family-name:var(--font-serif)] text-4xl font-medium leading-tight text-white text-3xl md:text-4xl">
           {title} <span className="text-[#d9a55b]">{accent}</span>
         </h1>
       </Reveal>
@@ -28,7 +28,7 @@ export default function SectionHeading({ title, accent, variant = "sub", eyebrow
   return (
     <Reveal>
       <span className="block h-0.5 w-14 bg-[#d9a55b]" />
-      <h2 className="mt-5 font-[family-name:var(--font-serif)] text-3xl font-semibold leading-tight text-white sm:text-4xl">
+      <h2 className="mt-5 font-[family-name:var(--font-serif)]  font-semibold leading-tight text-white text-3xl md:text-4xl">
         {title} <span className="text-[#d9a55b]">{accent}</span>
       </h2>
     </Reveal>

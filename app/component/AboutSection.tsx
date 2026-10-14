@@ -164,7 +164,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
 
             <motion.h2
               {...reveal(reduce, { y: 30 }, 0.1)}
-              className="mt-4 font-display text-5xl leading-[1.15] font-bold text-white sm:text-4.5xl"
+              className="mt-4 font-[family-name:var(--font-serif)] font-display text-3xl md:text-4xl leading-[1.15] font-bold text-white sm:text-4.5xl"
             >
               Architecture
               <span className="text-[#c8963e]"> Beyond Walls</span>

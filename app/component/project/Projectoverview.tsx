@@ -88,7 +88,7 @@ export default function ProjectOverview({ overview = defaultOverview }) {
           {/* heading */}
           <motion.h2
             variants={rise}
-            className={`${playfair.className} mt-4 text-3xl font-semibold leading-tight sm:text-4xl xl:text-4.5xl`}
+            className={`${playfair.className} mt-4 font-semibold leading-tight text-3xl md:text-4xl`}
           >
             {titleStart} <span className="text-[#f0b445]">{titleAccent}</span>
           </motion.h2>
