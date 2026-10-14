@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang="en" className={geistSans.variable}>
       <body>
         <AOSInit />
-        <AOSInit />
         <MotionConfig reducedMotion="user">
           <PageLoader>
             <Suspense fallback={<LoadingScreen />}>

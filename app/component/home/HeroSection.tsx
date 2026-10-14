@@ -3,36 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     ArrowRight,
-    Gem,
-    House,
-    Leaf,
     Menu,
-    Play,
-    Users,
     X,
 } from "lucide-react";
-import { PrimaryLinkButton } from "../ui/ThemeButtons";
 import Navbar from "../ui/Navbar";
-
-const highlights = [
-    { label: ["Modern", "Designs"], icon: House },
-    { label: ["Sustainable", "Solutions"], icon: Leaf },
-    { label: ["Timeless", "Excellence"], icon: Gem },
-    { label: ["Client", "Focused"], icon: Users },
-];
-
-const navigation = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Projects", href: "/projects" },
-    { label: "Gallery", href: "/Gallery" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/contact" },
-];
 
 export default function HeroSection() {
     const [menuOpen, setMenuOpen] = useState(false);

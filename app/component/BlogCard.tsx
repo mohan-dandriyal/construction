@@ -3,7 +3,7 @@ import React from 'react'
 import { motion, type Variants } from "framer-motion";
 import Image from 'next/image';
 import { ArrowRight } from "lucide-react";
-import { LinearBgButton, OutlineLinkButton } from '@/app/component/ui/ThemeButtons'
+import { LinearBgButton } from '@/app/component/ui/ThemeButtons'
 
 // Parent hover drives the image zoom and arrow nudge
 const imageVariants: Variants = {

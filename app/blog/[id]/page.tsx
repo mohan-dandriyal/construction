@@ -25,14 +25,14 @@ const sans = Poppins({
 
 
 interface PageProps {
-  params: Promise<{ id: number }>;
+  params: Promise<{ id: string }>;
 }
 
 async function BlogContent({ params }: PageProps) {
   await connection();
 
   const { id } = await params;
-  const post = posts.find((p) => p.id == id);
+  const post = posts.find((p) => p.id === id);
 
   if (!post) notFound();
 

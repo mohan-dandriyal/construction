@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -59,7 +59,7 @@ export default function Navbar({
 }: NavbarProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-    const closeMenu = () => setMenuOpen(false);
+    const closeMenu = useCallback(() => setMenuOpen(false), [setMenuOpen]);
 
     // Lock page scroll and close on Escape while the drawer is open
     useEffect(() => {
@@ -71,7 +71,7 @@ export default function Navbar({
             document.body.style.overflow = "";
             window.removeEventListener("keydown", onKey);
         };
-    }, [menuOpen]);
+    }, [closeMenu, menuOpen]);
 
     return (
         <AnimatePresence>

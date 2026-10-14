@@ -19,7 +19,7 @@ export default function BlogHeader({
       </Reveal>
 
       <Reveal delay={0.1}>
-        <h1 className="mt-5 font-[family-name:var(--font-serif)] text-4xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-6xl">
+        <h1 className="mt-5 font-[family-name:var(--font-serif)] text-4xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-4xl">
           {title}
           <span className="block text-[#e0a85c]">{accent}</span>
         </h1>

@@ -1,7 +1,8 @@
 
 import React from 'react'
 import InnerPageHeroSection from '../component/InnerPageHeroSection'
-import EnquirySection from '../component/enquiry/Enquirysection'
+import EnquirySection from '../component/contact/Enquirysection'
+import MapLocation from '../component/contact/MapLocation'
 
 function EnquiryNow() {
   return (
@@ -16,6 +17,8 @@ function EnquiryNow() {
       <div>
         <EnquirySection />
       </div>
+
+      <MapLocation />
 
     </div>
   )

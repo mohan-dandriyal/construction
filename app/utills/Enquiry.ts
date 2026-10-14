@@ -7,12 +7,12 @@ export const intro =
 export type ContactLine = { icon: LucideIcon; main: string; sub: string[] };
 
 export const contactLines: ContactLine[] = [
-  { icon: Phone, main: "+91 98765 43211", sub: ["Mon - Sat: 9:00 AM - 6:00 PM", "Sunday: Closed"] },
-  { icon: Mail, main: "info@arcovastudio.in", sub: ["We reply within 24 hours"] },
+  { icon: Phone, main: "+1 00000 00000", sub: ["Mon - Sat: 9:00 AM - 6:00 PM", "Sunday: Closed"] },
+  { icon: Mail, main: "info@xyz.com", sub: ["We reply within 24 hours"] },
   {
     icon: MapPin,
     main: "123, Design Avenue,",
-    sub: ["Sector 62, Noida,", "Uttar Pradesh, India - 201309"],
+    sub: ["2309 Mayflower Dr, Lynchburg, VA 24501, United States"],
   },
 ];
 

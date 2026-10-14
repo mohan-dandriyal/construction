@@ -12,7 +12,7 @@ import {
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
-import { LinearBgButton, OutlineLinkButton } from "./ui/ThemeButtons";
+import { LinearBgButton } from "./ui/ThemeButtons";
 
 /**
  * Scroll-reveal props (replaces AOS).

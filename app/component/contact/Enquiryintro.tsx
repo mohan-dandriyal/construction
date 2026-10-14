@@ -1,5 +1,5 @@
-import Reveal from "@/app/component/enquiry/Reveal";
-import { Instagram, Facebook, Linkedin, Pinterest } from "@/app/component/enquiry/Socialicons";
+import Reveal from "@/app/component/contact/Reveal";
+import { Instagram, Facebook, Linkedin, Pinterest } from "@/app/component/contact/Socialicons";
 import { contactLines, intro } from "@/app/utills/Enquiry";
 
 const socials = [

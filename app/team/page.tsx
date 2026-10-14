@@ -1,7 +1,6 @@
 import React from 'react'
 import InnerPageHeroSection from '../component/InnerPageHeroSection'
 import TeamSection from '../component/team/Teamsection'
-import StatsCounterSection from '../component/home/StatsCounterSection'
 
 function Teams() {
     return (

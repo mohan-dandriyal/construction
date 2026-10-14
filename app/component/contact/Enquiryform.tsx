@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Field from "@/app/component/enquiry/Field";
+import Field from "@/app/component/contact/Field";
 import { projectTypes, timelines } from "@/app/utills/Enquiry";
 
 export type EnquiryValues = {

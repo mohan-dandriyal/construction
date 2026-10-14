@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   motion,
   animate,
@@ -63,7 +62,7 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
   );
 }
 
-export default function AboutSection({ isShowButton }) {
+export default function AboutSection({ isShowButton = false }: { isShowButton?: boolean }) {
   const reduce = useReducedMotion();
 
   return (

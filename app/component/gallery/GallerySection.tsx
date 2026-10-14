@@ -10,13 +10,10 @@ import {
   ChevronLeft,
   ChevronRight,
   MapPin,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import {
   galleryItems,
-  galleryCategories,
-  type GalleryCategory,
   type GalleryItem,
 } from "@/app/utills/galleryData";
 import { SectionTitle, ColorFullTitleText } from "@/app/component/SectionTitle";
@@ -51,14 +48,10 @@ const cardVariants: Variants = {
 };
 
 export default function GallerySection() {
-  const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>("All");
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const filteredItems =
-    selectedCategory === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
+  const filteredItems = galleryItems;
 
   const activeItem: GalleryItem | null =
     activeModalIndex !== null ? filteredItems[activeModalIndex] ?? null : null;

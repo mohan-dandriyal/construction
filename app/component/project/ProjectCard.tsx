@@ -7,7 +7,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Building2, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projectDetails } from "@/app/utills/projectData";
 import { ColorFullTitleText, SectionTitle } from "../SectionTitle";
-import Link from "next/link";
 import { LinearBgButton } from "../ui/ThemeButtons";
 
 const playfair = Playfair_Display({

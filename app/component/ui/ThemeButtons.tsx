@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { useRouter } from "next/navigation";
 
 type ThemeButtonProps = {
     href: string;
@@ -73,7 +72,6 @@ export const OutlineLinkButton = (props: ThemeButtonProps) => {
 
 export const LinearBgButton = (props: ThemeButtonProps) => {
     const { href, children } = props;
-    console.log("href ---------", href)
     return (
         <motion.div
             whileHover="hover"

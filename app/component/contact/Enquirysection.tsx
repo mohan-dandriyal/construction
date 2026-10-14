@@ -1,8 +1,8 @@
 
 import { Playfair_Display, Poppins } from "next/font/google";
-import EnquiryIntro from "@/app/component/enquiry/Enquiryintro";
-import EnquiryForm from "@/app/component/enquiry/Enquiryform";
-import FeatureStrip from "@/app/component/enquiry/Featurestrip";
+import EnquiryIntro from "@/app/component/contact/Enquiryintro";
+import EnquiryForm from "@/app/component/contact/Enquiryform";
+import FeatureStrip from "@/app/component/contact/Featurestrip";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
