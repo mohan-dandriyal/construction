@@ -91,40 +91,32 @@ export const galleryItems: GalleryItem[] = [
     description:
       "Private outdoor lounge deck and illuminated infinity pool backdrop crafted for seamless indoor-outdoor living.",
   },
-  {
-    id: 9,
-    title: "Minimalist Studio Atrium",
-    category: "Commercial",
-    location: "Cyber City, Gurugram",
-    image: "/home-about-left.png",
-    description:
-      "Minimalist architectural studio layout with natural daylighting, high ceilings, and clean linear forms.",
-  },
-  {
-    id: 10,
-    title: "Contemporary Villa Complex",
-    category: "Residential",
-    location: "Goa",
-    image: "/home-about-right.png",
-    description:
-      "Luxury tropical villa architecture balancing central breezy courtyards with private residential wings.",
-  },
-  {
-    id: 11,
-    title: "Arcova Flagship Pavilion",
-    category: "Architecture",
-    location: "Noida, Uttar Pradesh",
-    image: "/home-about.png",
-    description:
-      "Flagship architectural design demonstrating balance, scale, and sustainable materiality in luxury architecture.",
-  },
-  {
-    id: 12,
-    title: "Twilight Horizon Villa",
-    category: "Residential",
-    location: "Kasauli, Himachal",
-    image: "/enquiry-now-bg.png",
-    description:
-      "Panoramic cliffside luxury residence overlooking rolling hills with floor-to-ceiling panoramic glass at dusk.",
-  },
+
+  // {
+  //   id: 10,
+  //   title: "Contemporary Villa Complex",
+  //   category: "Residential",
+  //   location: "Goa",
+  //   image: "/about-right.png",
+  //   description:
+  //     "Luxury tropical villa architecture balancing central breezy courtyards with private residential wings.",
+  // },
+  // {
+  //   id: 11,
+  //   title: "Arcova Flagship Pavilion",
+  //   category: "Architecture",
+  //   location: "Noida, Uttar Pradesh",
+  //   image: "/home-about.png",
+  //   description:
+  //     "Flagship architectural design demonstrating balance, scale, and sustainable materiality in luxury architecture.",
+  // },
+  // {
+  //   id: 12,
+  //   title: "Twilight Horizon Villa",
+  //   category: "Residential",
+  //   location: "Kasauli, Himachal",
+  //   image: "/enquiry-now-bg.png",
+  //   description:
+  //     "Panoramic cliffside luxury residence overlooking rolling hills with floor-to-ceiling panoramic glass at dusk.",
+  // },
 ];
