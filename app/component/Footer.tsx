@@ -10,9 +10,7 @@ import {
   MapPin,
   Clock,
   ChevronRight,
-  ArrowRight,
 } from "lucide-react";
-import { LinearBgButton } from "./ui/ThemeButtons";
 
 /**
  * Scroll-reveal props (replaces AOS).
@@ -81,7 +79,7 @@ const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Our Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Gallery", href: "/Gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Our Team", href: "/team" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
@@ -114,14 +112,6 @@ const contacts = [
   { Icon: Clock, lines: ["Mon - Sat: 9:00 AM - 6:00 PM", "Sunday: Closed"] },
 ];
 
-const gallery = [
-  "/service-1.png",
-  "/ser-2.jpg",
-  "/ser-3.png",
-  "/ser-3.png",
-  "/service-1.png",
-  "/ser-2.jpg",
-];
 
 function Heading({ children }: { children: ReactNode }) {
   return (
@@ -148,7 +138,7 @@ export default function Footer() {
       </div>
 
       <div className="relative mx-auto max-w-350 px-6 pt-14 pb-12 sm:px-10 lg:px-[4%]">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.1fr_1.3fr_1.4fr] lg:gap-0">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.1fr_1.3fr] lg:gap-0">
           {/* Brand */}
           <motion.div {...reveal(reduce, { y: 30 })}>
             <Image
@@ -259,40 +249,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Gallery */}
-          <motion.div
-            {...reveal(reduce, { y: 30 }, 0.4)}
-            className="lg:border-l lg:border-[#1f2a35] lg:pl-8"
-          >
-            <Heading>Our Gallery</Heading>
-            <div className="grid grid-cols-3 gap-2.5">
-              {gallery.map((src, i) => (
-                <motion.div
-                  key={i + 1}
-                  {...reveal(reduce, { scale: 0.85 }, 0.5 + i * 0.07)}
-                  className="relative aspect-[3/4] overflow-hidden rounded-md"
-                >
-                  <Image src={src} alt={`Gallery ${i + 1}`} fill sizes="120px" className="object-cover hover:scale-105 duration-200" />
-                </motion.div>
-              ))}
-            </div>
-
-           
-
-            <LinearBgButton href='/gallery'>
-              <div className='flex items-center gap-1'>
-                 VIEW GALLERY
-                <motion.span
-                  variants={{ rest: { x: 0 }, hover: { x: 5 } }}
-                  className="grid h-8 w-8 place-items-center rounded-full bg-gold text-navy"
-                >
-                  <ArrowRight size={16} />
-                </motion.span>
-              </div>
-            </LinearBgButton>
-
-
-          </motion.div>
         </div>
       </div>
 

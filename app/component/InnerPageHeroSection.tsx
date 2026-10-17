@@ -43,7 +43,7 @@ export default function InnerPageHeroSection({
             />
             <div className="about-hero__shade" aria-hidden="true" />
 
-            <header className="site-header">
+            <header className="site-header mx-auto max-w-350">
                 <Link className="site-logo" href="/" aria-label="Arcova Architecture Studio home">
                     <Image
                         src="/logo.png"
