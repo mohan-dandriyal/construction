@@ -1,14 +1,15 @@
 
 import InnerPageHeroSection from "../InnerPageHeroSection";
+import siteData from "@/app/data/site.json";
 
 
 export default function HeroSection() {
 
     return (
         <InnerPageHeroSection
-            title={"About Us"}
-            image={"/banner/about-banner.png"}
-            curentPage={"About Us"}
+            title={siteData.pageHeroes.about.title}
+            image={siteData.pageHeroes.about.image}
+            curentPage={siteData.pageHeroes.about.currentPage}
         />
     );
 }

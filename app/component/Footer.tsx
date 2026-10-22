@@ -11,6 +11,9 @@ import {
   Clock,
   ChevronRight,
 } from "lucide-react";
+import siteData from "@/app/data/site.json";
+import serviceData from "@/app/data/services.json";
+import contactData from "@/app/data/contact.json";
 
 /**
  * Scroll-reveal props (replaces AOS).
@@ -74,26 +77,9 @@ const Youtube = (p: { size?: number }) => (
   </BrandSvg>
 );
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Our Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Our Team", href: "/team" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
-];
+const quickLinks = siteData.navigation.links;
 
-const services = [
-  "Residential Architecture",
-  "Commercial Architecture",
-  "Interior Design",
-  "Renovation & Remodeling",
-  "Landscape Design",
-  "Planning & Consultation",
-  "3D Visualization",
-];
+const services = serviceData.items.map((service) => service.title);
 
 const socials = [
   { label: "Facebook", href: "#", Icon: Facebook },
@@ -102,15 +88,11 @@ const socials = [
   { label: "YouTube", href: "#", Icon: Youtube },
 ];
 
-const contacts = [
-  { Icon: Phone, lines: ["+1 00000 00000"] },
-  { Icon: Mail, lines: ["info@xyz.com",] },
-  {
-    Icon: MapPin,
-    lines: ["2309 Mayflower Dr, Lynchburg, VA 24501, United States"],
-  },
-  { Icon: Clock, lines: ["Mon - Sat: 9:00 AM - 6:00 PM", "Sunday: Closed"] },
-];
+const contactIconMap = { phone: Phone, mail: Mail, location: MapPin } as const;
+const contacts = contactData.contactLines.map((contact) => ({
+  Icon: contactIconMap[contact.kind as keyof typeof contactIconMap] ?? Clock,
+  lines: [contact.main, ...contact.sub],
+}));
 
 
 function Heading({ children }: { children: ReactNode }) {

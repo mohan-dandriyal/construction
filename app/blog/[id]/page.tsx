@@ -11,6 +11,7 @@ import { Playfair_Display, Poppins } from "next/font/google";
 import { posts } from "@/app/utills/postDetails";
 import InnerPageHeroSection from "@/app/component/InnerPageHeroSection";
 import LoadingScreen from "@/app/component/LoadingScreen";
+import siteData from "@/app/data/site.json";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -41,9 +42,9 @@ async function BlogContent({ params }: PageProps) {
     <div>
 
       <InnerPageHeroSection
-        title={"Blog Details"}
-        image={"/banner/about-banner.png"}
-        curentPage={"Blog Details"}
+        title={siteData.pageHeroes.blogDetails.title}
+        image={siteData.pageHeroes.blogDetails.image}
+        curentPage={siteData.pageHeroes.blogDetails.currentPage}
       />
 
 
@@ -52,8 +53,8 @@ async function BlogContent({ params }: PageProps) {
       >
         <article className="mx-auto max-w-[1300px]">
           <BlogHero
-            image={`/service-1.png`}
-            alt={`${post.title} ${post.accent}`}
+            image={post.image}
+            alt={post.imageAlt}
             day={post.day}
             monthYear={post.monthYear}
           />
@@ -70,7 +71,7 @@ async function BlogContent({ params }: PageProps) {
             <ArticleSection
               key={section.accent}
               section={section}
-              image={`/ser-5.jpg`}
+              image={post.image}
               alt={`${section.title.replace("\n", " ")} ${section.accent}`}
               reverse={i % 2 === 1}
             />

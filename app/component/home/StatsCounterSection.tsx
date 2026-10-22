@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Playfair_Display, Barlow } from "next/font/google";
+import homeData from "@/app/data/home.json";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -15,12 +16,7 @@ const sans = Barlow({
   variable: "--font-sans",
 });
 
-const stats = [
-  { value: 20, label: "Years Of Experience" },
-  { value: 10, label: "Online Booking" },
-  { value: 40, label: "Experience Interior" },
-  { value: 30, label: "Best Interior Award" },
-];
+const stats = homeData.stats;
 
 /**
  * Counts from 0 to `end` once the element scrolls into view.

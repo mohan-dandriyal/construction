@@ -10,6 +10,7 @@ import {
     X,
 } from "lucide-react";
 import Navbar from "../ui/Navbar";
+import siteData from "@/app/data/site.json";
 
 export default function HeroSection() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function HeroSection() {
             <section id="home" className="hero">
                 <Image
                     className="hero__background"
-                    src="/banner/hero.png"
+                    src={siteData.hero.image}
                     alt=""
                     fill
                     priority
@@ -72,13 +73,13 @@ export default function HeroSection() {
                             transition={{ delay: 0.15, duration: 0.6 }}
                         >
                             <span />
-                            <p>Arcova Architecture Studio</p>
+                            <p>{siteData.hero.eyebrow}</p>
                             <span />
                         </motion.div>
 
                         <h1 id="hero-title">
-                            We Design Spaces
-                            <span>That Inspire Life</span>
+                            {siteData.hero.title}
+                            <span>{siteData.hero.accent}</span>
                         </h1>
 
                         <p className="hero-card__description">
@@ -94,7 +95,7 @@ export default function HeroSection() {
                             // whileHover={{ y: -3 }}
                             // whileTap={{ scale: 0.98 }}
                             >
-                                Explore Our Projects
+                                {siteData.hero.button}
                                 <ArrowRight aria-hidden="true" size={21} strokeWidth={1.8} />
                             </Link>
                         </div>

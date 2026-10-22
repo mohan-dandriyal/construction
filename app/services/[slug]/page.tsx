@@ -6,6 +6,7 @@ import ServiceDetail from "@/app/component/service-details/ServiceDetail";
 import { services } from "@/app/utills/services";
 import { Suspense } from "react";
 import LoadingScreen from "@/app/component/LoadingScreen";
+import siteData from "@/app/data/site.json";
 
 const serif = Playfair_Display({
     subsets: ["latin"],
@@ -37,7 +38,7 @@ async function ServicesContent({ params }: PageProps) {
         <div>
             <InnerPageHeroSection
                 title={service.title}
-                image={"/banner/about-banner.png"}
+                image={siteData.pageHeroes.services.image}
                 curentPage={service.title}
             />
 

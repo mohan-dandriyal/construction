@@ -1,0 +1,115 @@
+{
+  "brand": "Arcova Architecture Studio",
+  "hero": {
+    "eyebrow": "Arcova Architecture Studio",
+    "title": "Designing Spaces",
+    "accent": "That Inspire Life",
+    "image": "/banner/hero.png",
+    "button": "Explore Our Work"
+  },
+  "pageHeroes": {
+    "about": {
+      "title": "About Us",
+      "currentPage": "About Us",
+      "image": "/banner/about-banner.png"
+    },
+    "services": {
+      "title": "Our Services",
+      "currentPage": "Our Services",
+      "image": "/banner/about-banner.png"
+    },
+    "projects": {
+      "title": "Our Projects",
+      "currentPage": "Our Projects",
+      "image": "/banner/about-banner.png"
+    },
+    "gallery": {
+      "title": "Our Gallery",
+      "currentPage": "Gallery",
+      "image": "/banner/about-banner.png"
+    },
+    "team": {
+      "title": "Our Teams",
+      "currentPage": "Our Teams",
+      "image": "/banner/about-banner.png"
+    },
+    "blog": {
+      "title": "Our Blogs",
+      "currentPage": "Our Blogs",
+      "image": "/banner/about-banner.png"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "currentPage": "Contact Us",
+      "image": "/banner/about-banner.png"
+    },
+    "projectDetails": {
+      "title": "Project Details",
+      "currentPage": "Project Details",
+      "image": "/banner/about-banner.png"
+    },
+    "blogDetails": {
+      "title": "Blog Details",
+      "currentPage": "Blog Details",
+      "image": "/banner/about-banner.png"
+    }
+  },
+  "navigation": {
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Projects",
+        "href": "/projects"
+      },
+      {
+        "label": "Gallery",
+        "href": "/gallery"
+      },
+      {
+        "label": "Team",
+        "href": "/team"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "footer": {
+    "description": "We create meaningful spaces through thoughtful architecture, interiors and construction.",
+    "quickLinks": [
+      {
+        "label": "About Us",
+        "href": "/about"
+      },
+      {
+        "label": "Our Services",
+        "href": "/services"
+      },
+      {
+        "label": "Our Projects",
+        "href": "/projects"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact"
+      }
+    ],
+    "copyright": "© 2026 Arcova Architecture Studio. All Rights Reserved."
+  }
+}

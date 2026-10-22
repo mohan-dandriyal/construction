@@ -16,6 +16,7 @@ import { FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram   } from "react-icons
 
 
 import type { Dispatch, SetStateAction } from "react";
+import siteData from "@/app/data/site.json";
 
 
 
@@ -26,15 +27,7 @@ type NavItem = {
     children?: { label: string; href: string }[];
 };
 
-const navigation: NavItem[] = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Services", href: "/services" },
-    { label: "Projects", href: "/projects" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/contact" },
-];
+const navigation: NavItem[] = siteData.navigation.links;
 
 const contactInfo = [
     { icon: Phone, label: "Call Now", value: "+1 000000000" },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import InnerPageHeroSection from "../component/InnerPageHeroSection";
 import GallerySection from "../component/gallery/GallerySection";
+import siteData from "@/app/data/site.json";
 
 export const metadata: Metadata = {
   title: "Project Gallery | Arcova Architecture Studio",
@@ -12,9 +13,9 @@ export default function GalleryPage() {
   return (
     <main>
       <InnerPageHeroSection
-        title={"Our Gallery"}
-        image={"/banner/about-banner.png"}
-        curentPage={"Gallery"}
+        title={siteData.pageHeroes.gallery.title}
+        image={siteData.pageHeroes.gallery.image}
+        curentPage={siteData.pageHeroes.gallery.currentPage}
       />
 
       <GallerySection />

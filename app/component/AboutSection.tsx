@@ -11,15 +11,16 @@ import {
 } from "framer-motion";
 import { Lightbulb, Users, Leaf, Award, ArrowRight, Plus } from "lucide-react";
 import { LinearBgButton } from "./ui/ThemeButtons";
+import homeData from "@/app/data/home.json";
 
 const features = [
-  { Icon: Lightbulb, label: "Innovative Design" },
-  { Icon: Users, label: "Client Focused" },
-  { Icon: Leaf, label: "Sustainable Solutions" },
-  { Icon: Award, label: "Expert Team" },
+  { Icon: Lightbulb, label: homeData.about.features[0] },
+  { Icon: Users, label: homeData.about.features[1] },
+  { Icon: Leaf, label: homeData.about.features[2] },
+  { Icon: Award, label: homeData.about.features[3] },
 ];
 
-const tagline = ["SHAPING", "SPACES", "ENRICHING", "LIVES"];
+const tagline = homeData.about.tagline;
 
 /**
  * Scroll-reveal props (replaces AOS).
@@ -73,7 +74,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
         className="pointer-events-none absolute right-0 bottom-0 hidden h-[420px] w-[44%] opacity-70 lg:block"
       >
         <Image
-          src="/about-right.png"
+          src={homeData.about.blueprintImage}
           alt=""
           fill
           className=""
@@ -122,7 +123,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             className="absolute inset-0"
           >
             <Image
-              src="/about-left.png"
+              src={homeData.about.image}
               alt="A bright living room and sculptural staircase in a modern home"
               fill
               priority
@@ -140,10 +141,10 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             whileHover={{ scale: 1.04 }}
             className="absolute right-0 bottom-0 flex h-[30%] w-[34%] min-w-[150px] flex-col items-center justify-center rounded-md border border-gold/70 bg-[#0d141b] text-center shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-[#e0a04c]"
           >
-            <CountUp to={15} suffix="+" />
+            <CountUp to={homeData.about.years} suffix="+" />
             <span className="my-3 block h-px w-8 bg-gold/70" />
-            <span className="text-[15px] text-[#aeb6bf]">Years of</span>
-            <span className="mt-1 text-[15px] font-medium text-white">Design Excellence</span>
+            <span className="text-[15px] text-[#aeb6bf]">{homeData.about.yearsLabel}</span>
+            <span className="mt-1 text-[15px] font-medium text-white">{homeData.about.yearsAccent}</span>
           </motion.div>
         </motion.div>
 
@@ -157,7 +158,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             >
               <span className="h-px w-16 bg-[#d9a850] sm:w-20" />
               <span className="text-sm font-medium uppercase tracking-[0.35em]">
-                ABOUT ARCOVA
+                {homeData.about.eyebrow}
               </span>
               <span className="hidden h-px w-16 bg-[#d9a850] sm:block sm:w-20" />
             </div>
@@ -166,8 +167,8 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
               {...reveal(reduce, { y: 30 }, 0.1)}
               className="mt-4 font-[family-name:var(--font-serif)] font-display text-3xl md:text-4xl leading-[1.15] font-bold text-white sm:text-4.5xl"
             >
-              Architecture
-              <span className="text-[#c8963e]"> Beyond Walls</span>
+              {homeData.about.title}
+              <span className="text-[#c8963e]">{homeData.about.accent}</span>
             </motion.h2>
           </div>
 
@@ -177,10 +178,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             {...reveal(reduce, { y: 30 }, 0.2)}
             className="mt-8 max-w-[600px] text-[17px] leading-8 text-[#c3cad1]"
           >
-            We are a passionate team of architects and designers creating meaningful
-            spaces for modern living. From concept to completion, we focus on
-            innovative design, smart planning and sustainable solutions that enhance
-            the way people live, work and connect.
+            {homeData.about.description}
           </motion.p>
 
           <div className="mt-10 grid max-w-[520px] grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">

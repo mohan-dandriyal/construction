@@ -1,6 +1,7 @@
 import React from 'react'
 import ProjectCard from '../component/project/ProjectCard'
 import InnerPageHeroSection from '../component/InnerPageHeroSection'
+import siteData from "@/app/data/site.json"
 
 function Project() {
   return (
@@ -8,9 +9,9 @@ function Project() {
 
       {/* ------ hero section start --------- */}
       <InnerPageHeroSection
-        title={"Our Projects"}
-        image={"/banner/about-banner.png"}
-        curentPage={"Our Projects"}
+        title={siteData.pageHeroes.projects.title}
+        image={siteData.pageHeroes.projects.image}
+        curentPage={siteData.pageHeroes.projects.currentPage}
       />
       {/* ------ hero section end --------- */}
 

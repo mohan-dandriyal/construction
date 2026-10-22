@@ -11,6 +11,7 @@ import {
   House,
   Leaf,
 } from "lucide-react";
+import homeData from "@/app/data/home.json";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -19,38 +20,8 @@ const playfair = Playfair_Display({
 });
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-const features = [
-  {
-    icon: Users,
-    title: "Expert Team",
-    text: "Experienced architects and designers dedicated to excellence.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovative Designs",
-    text: "Creative and modern design solutions tailored to your needs.",
-  },
-  {
-    icon: Settings,
-    title: "End-to-End Support",
-    text: "From concept to completion, we manage every detail.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Quality Assurance",
-    text: "Premium materials and superior craftsmanship in every project.",
-  },
-  {
-    icon: House,
-    title: "Customized Solutions",
-    text: "Designs that match your lifestyle, space and budget.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainable Approach",
-    text: "Environment-friendly designs for a better tomorrow.",
-  },
-];
+const featureIcons = [Users, Lightbulb, Settings, BadgeCheck, House, Leaf];
+const features = homeData.whyChooseUs.features.map((feature, index) => ({ ...feature, icon: featureIcons[index] }));
 
 const container: Variants = {
   hidden: {},
@@ -102,7 +73,7 @@ export default function WhyChooseUs() {
           >
             <span className="h-px w-16 bg-[#d9a850] sm:w-20" />
             <span className="text-sm font-medium uppercase tracking-[0.35em]">
-              Why Choose Us
+              {homeData.whyChooseUs.eyebrow}
             </span>
             <span className="hidden h-px w-16 bg-[#d9a850] sm:block sm:w-20" />
           </div>
@@ -111,16 +82,15 @@ export default function WhyChooseUs() {
           <h2
             className={`${playfair.className} text-3xl md:text-4xl font-bold leading-[1.15]`}
           >
-            Designing Spaces
+            {homeData.whyChooseUs.title}
             <br />
-            <span className="text-[#c8963e]">That Inspire</span>
+            <span className="text-[#c8963e]">{homeData.whyChooseUs.accent}</span>
           </h2>
 
           <p
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300"
           >
-            We combine creativity, functionality and attention to detail to
-            create spaces that reflect your vision and lifestyle.
+            {homeData.whyChooseUs.description}
           </p>
 
           {/* feature grid */}
