@@ -4,13 +4,32 @@
     "title": "Architecture",
     "accent": " Beyond Walls",
     "description": "We are a passionate team of architects and designers creating meaningful spaces for modern living. From concept to completion, we focus on innovative design, smart planning and sustainable solutions that enhance the way people live, work and connect.",
-    "years": 15,
+    "years": 0,
     "yearsLabel": "Years of",
     "yearsAccent": "Design Excellence",
-    "tagline": ["SHAPING", "SPACES", "ENRICHING", "LIVES"],
-    "image": "/about-left.png",
+    "tagline": [
+      "SHAPING",
+      "SPACES",
+      "ENRICHING",
+      "LIVES"
+    ],
+    "image": [
+      {
+        "src": "/about-1.png",
+        "alt": "A bright living room and sculptural staircase in a modern home"
+      },
+      {
+        "src": "/about-2.png",
+        "alt": ""
+      }
+    ],
     "blueprintImage": "/about-right.png",
-    "features": ["Innovative Design", "Client Focused", "Sustainable Solutions", "Expert Team"],
+    "features": [
+      "Innovative Design",
+      "Client Focused",
+      "Sustainable Solutions",
+      "Expert Team"
+    ],
     "button": "More About Us"
   },
   "whyChooseUs": {
@@ -20,12 +39,30 @@
     "description": "We combine creativity, functionality and attention to detail to create spaces that reflect your vision and lifestyle.",
     "image": "/why-choose-us.png",
     "features": [
-      { "title": "Expert Team", "text": "Experienced architects and designers dedicated to excellence." },
-      { "title": "Innovative Designs", "text": "Creative and modern design solutions tailored to your needs." },
-      { "title": "End-to-End Support", "text": "From concept to completion, we manage every detail." },
-      { "title": "Quality Assurance", "text": "Premium materials and superior craftsmanship in every project." },
-      { "title": "Customized Solutions", "text": "Designs that match your lifestyle, space and budget." },
-      { "title": "Sustainable Approach", "text": "Environment-friendly designs for a better tomorrow." }
+      {
+        "title": "Expert Team",
+        "text": "Experienced architects and designers dedicated to excellence."
+      },
+      {
+        "title": "Innovative Designs",
+        "text": "Creative and modern design solutions tailored to your needs."
+      },
+      {
+        "title": "End-to-End Support",
+        "text": "From concept to completion, we manage every detail."
+      },
+      {
+        "title": "Quality Assurance",
+        "text": "Premium materials and superior craftsmanship in every project."
+      },
+      {
+        "title": "Customized Solutions",
+        "text": "Designs that match your lifestyle, space and budget."
+      },
+      {
+        "title": "Sustainable Approach",
+        "text": "Environment-friendly designs for a better tomorrow."
+      }
     ]
   },
   "process": {
@@ -34,29 +71,103 @@
     "accent": "Working Process",
     "description": "From initial consultation to final execution, we follow a streamlined process to deliver exceptional design solutions with precision and care.",
     "steps": [
-      { "title": "Visit Project", "description": "We understand your requirements and visit the site to assess the space and possibilities." },
-      { "title": "Planning Design", "description": "Our team creates detailed plans and design concepts tailored to your needs." },
-      { "title": "Project Sketch", "description": "We develop 2D/3D sketches and visualizations to give you a clear view of the final outcome." },
-      { "title": "Start Working", "description": "Once approved, we begin execution with quality materials and expert craftsmanship." }
+      {
+        "title": "Visit Project",
+        "description": "We understand your requirements and visit the site to assess the space and possibilities."
+      },
+      {
+        "title": "Planning Design",
+        "description": "Our team creates detailed plans and design concepts tailored to your needs."
+      },
+      {
+        "title": "Project Sketch",
+        "description": "We develop 2D/3D sketches and visualizations to give you a clear view of the final outcome."
+      },
+      {
+        "title": "Start Working",
+        "description": "Once approved, we begin execution with quality materials and expert craftsmanship."
+      }
     ]
   },
   "stats": [
-    { "value": 15, "label": "Years of Experience" },
-    { "value": 250, "label": "Projects Completed" },
-    { "value": 180, "label": "Happy Clients" },
-    { "value": 25, "label": "Design Awards" }
+    {
+      "value": 15,
+      "label": "Years of Experience"
+    },
+    {
+      "value": 250,
+      "label": "Projects Completed"
+    },
+    {
+      "value": 180,
+      "label": "Happy Clients"
+    },
+    {
+      "value": 25,
+      "label": "Design Awards"
+    }
   ],
   "testimonials": [
-    { "name": "Priya Mehta", "role": "Homeowner, Gurugram", "avatar": "/profile-1.jpg", "text": "From the first meeting they listened carefully and turned our rough ideas into a living room we love. Every material and finish was chosen with care." },
-    { "name": "Rahul Sharma", "role": "Homeowner, New Delhi", "avatar": "/profile-1.jpg", "text": "Our home was just a basic space before, but their design completely transformed it into a beautiful and functional home. The team understood our needs, suggested creative ideas and delivered exactly what we imagined. Very professional, timely and great attention to detail. Highly recommended!" },
-    { "name": "Ankit Verma", "role": "Villa Owner, Noida", "avatar": "/profile-1.jpg", "text": "Delivered on schedule and within budget. The lighting and woodwork gave our villa a warm, premium feel that guests always comment on." },
-    { "name": "Neha Kapoor", "role": "Apartment Owner, Faridabad", "avatar": "/profile-1.jpg", "text": "A smooth experience from concept to handover. Smart storage ideas made our compact apartment feel open and elegant." }
+    {
+      "name": "Priya Mehta",
+      "role": "Homeowner, Gurugram",
+      "avatar": "/profile-1.jpg",
+      "text": "From the first meeting they listened carefully and turned our rough ideas into a living room we love. Every material and finish was chosen with care."
+    },
+    {
+      "name": "Rahul Sharma",
+      "role": "Homeowner, New Delhi",
+      "avatar": "/profile-1.jpg",
+      "text": "Our home was just a basic space before, but their design completely transformed it into a beautiful and functional home. The team understood our needs, suggested creative ideas and delivered exactly what we imagined. Very professional, timely and great attention to detail. Highly recommended!"
+    },
+    {
+      "name": "Ankit Verma",
+      "role": "Villa Owner, Noida",
+      "avatar": "/profile-1.jpg",
+      "text": "Delivered on schedule and within budget. The lighting and woodwork gave our villa a warm, premium feel that guests always comment on."
+    },
+    {
+      "name": "Neha Kapoor",
+      "role": "Apartment Owner, Faridabad",
+      "avatar": "/profile-1.jpg",
+      "text": "A smooth experience from concept to handover. Smart storage ideas made our compact apartment feel open and elegant."
+    }
   ],
   "visualizationSlides": [
-    { "eyebrow": "Modern", "title": "3D Visualizations", "text": "Bring your future space to life with detailed, realistic visualizations before construction begins.", "image": "/proj-1.png", "href": "/services/2d-3d-design-layout" },
-    { "eyebrow": "Contemporary", "title": "Interior Design", "text": "Thoughtful interior concepts that combine comfort, character and everyday function.", "image": "/proj-1.png", "href": "/services/home-interior-design" },
-    { "eyebrow": "Elegant", "title": "Exterior Design", "text": "Striking facades and outdoor spaces designed for lasting beauty and performance.", "image": "/proj-1.png", "href": "/services/home-exterior-design" },
-    { "eyebrow": "Detailed", "title": "Architectural Plans", "text": "Clear, accurate drawings that give every decision a strong foundation.", "image": "/proj-1.png", "href": "/services/2d-3d-design-layout" },
-    { "eyebrow": "Tailored", "title": "Custom Projects", "text": "Personalized design solutions shaped around your goals, lifestyle and budget.", "image": "/proj-1.png", "href": "/services/custom-design-plan" }
+    {
+      "eyebrow": "Modern",
+      "title": "3D Visualizations",
+      "text": "Bring your future space to life with detailed, realistic visualizations before construction begins.",
+      "image": "/proj-1.png",
+      "href": "/services/2d-3d-design-layout"
+    },
+    {
+      "eyebrow": "Contemporary",
+      "title": "Interior Design",
+      "text": "Thoughtful interior concepts that combine comfort, character and everyday function.",
+      "image": "/proj-1.png",
+      "href": "/services/home-interior-design"
+    },
+    {
+      "eyebrow": "Elegant",
+      "title": "Exterior Design",
+      "text": "Striking facades and outdoor spaces designed for lasting beauty and performance.",
+      "image": "/proj-1.png",
+      "href": "/services/home-exterior-design"
+    },
+    {
+      "eyebrow": "Detailed",
+      "title": "Architectural Plans",
+      "text": "Clear, accurate drawings that give every decision a strong foundation.",
+      "image": "/proj-1.png",
+      "href": "/services/2d-3d-design-layout"
+    },
+    {
+      "eyebrow": "Tailored",
+      "title": "Custom Projects",
+      "text": "Personalized design solutions shaped around your goals, lifestyle and budget.",
+      "image": "/proj-1.png",
+      "href": "/services/custom-design-plan"
+    }
   ]
 }

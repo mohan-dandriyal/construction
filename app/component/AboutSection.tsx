@@ -95,7 +95,7 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
             style={{ originY: 0 }}
-            className="block  w-px bg-gold border-l border-[#c8963e]"
+            className="block w-px bg-gold border-l border-[#c8963e]"
           />
           <div className="space-y-1 pt-3 text-[17px] leading-8 tracking-wide text-[#aeb6bf]">
             {tagline.map((w, i) => (
@@ -111,51 +111,70 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
         </div>
       </motion.div>
 
-      <div className="relative mx-auto grid max-w-350 items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-8 xl:gap-12">
+      <div className="relative mx-auto grid max-w-350 items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-8 xl:gap-12">
         {/* Image collage */}
         <motion.div
           {...reveal(reduce, { x: -60 })}
-          className="relative mx-auto h-[460px] w-full max-w-[600px] sm:h-[560px] lg:h-[660px] lg:max-w-none"
+          className="relative mx-auto h-[500px] w-full max-w-[620px] sm:h-[580px] lg:h-[660px] lg:max-w-none"
         >
+          {/* Main/Left Large Image */}
           <motion.div
             whileHover={{ scale: 1.015 }}
             transition={{ duration: 0.4 }}
-            className="absolute inset-0"
+            className="absolute left-0 top-0 h-[85%] w-[72%] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0d141b]"
           >
             <Image
-              src={homeData.about.image}
-              alt="A bright living room and sculptural staircase in a modern home"
+              src={homeData.about.image[0].src}
+              alt={homeData.about.image[0].alt}
               fill
               priority
-              sizes="(max-width: 1024px) 90vw, 42vw"
-              className="object-contain object-left"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
             />
           </motion.div>
 
+          {/* Secondary/Right Overlay Image */}
+          {homeData.about.image[1] && (
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{ scale: 1.02 }}
+              className="absolute right-2 top-[14%] h-[60%] w-[48%] rounded-2xl overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.6)] border-2 border-white/20 bg-[#0d141b] z-10"
+            >
+              <Image
+                src={homeData.about.image[1].src}
+                alt={homeData.about.image[1].alt}
+                fill
+                sizes="(max-width: 1024px) 50vw, 30vw"
+                className="object-cover object-center"
+              />
+            </motion.div>
+          )}
+
           {/* Years badge */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, scale: 0.8, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 140, damping: 16, delay: 0.5 }}
-            whileHover={{ scale: 1.04 }}
-            className="absolute right-0 bottom-0 flex h-[30%] w-[34%] min-w-[150px] flex-col items-center justify-center rounded-md border border-gold/70 bg-[#0d141b] text-center shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-[#e0a04c]"
-          >
-            <CountUp to={homeData.about.years} suffix="+" />
-            <span className="my-3 block h-px w-8 bg-gold/70" />
-            <span className="text-[15px] text-[#aeb6bf]">{homeData.about.yearsLabel}</span>
-            <span className="mt-1 text-[15px] font-medium text-white">{homeData.about.yearsAccent}</span>
-          </motion.div>
+          {homeData.about.years && (
+            <motion.div
+              initial={reduce ? false : { opacity: 0, scale: 0.8, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 140, damping: 16, delay: 0.5 }}
+              whileHover={{ scale: 1.04 }}
+              className="absolute right-0 bottom-0 z-20 flex h-[32%] w-[38%] min-w-[150px] flex-col items-center justify-center rounded-md border border-[#e0a04c]/70 bg-[#0d141b] text-center shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+            >
+              <CountUp to={homeData.about.years} suffix="+" />
+              <span className="my-2 block h-px w-8 bg-gold/70" />
+              <span className="text-[14px] text-[#aeb6bf]">{homeData.about.yearsLabel}</span>
+              <span className="mt-0.5 text-[14px] font-medium text-white">{homeData.about.yearsAccent}</span>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* Text content */}
         <div className="relative lg:max-w-[640px]">
-
-
-          <div className="w-8/12">
-            <div
-              className="mb-5 flex items-center gap-4 text-[#d9a850]"
-            >
+          <div className="w-full">
+            <div className="mb-5 flex items-center gap-4 text-[#d9a850]">
               <span className="h-px w-16 bg-[#d9a850] sm:w-20" />
               <span className="text-sm font-medium uppercase tracking-[0.35em]">
                 {homeData.about.eyebrow}
@@ -167,12 +186,10 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
               {...reveal(reduce, { y: 30 }, 0.1)}
               className="mt-4 font-[family-name:var(--font-serif)] font-display text-3xl md:text-4xl leading-[1.15] font-bold text-white sm:text-4.5xl"
             >
-              {homeData.about.title}
+              {homeData.about.title}{" "}
               <span className="text-[#c8963e]">{homeData.about.accent}</span>
             </motion.h2>
           </div>
-
-
 
           <motion.p
             {...reveal(reduce, { y: 30 }, 0.2)}
@@ -197,23 +214,20 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
             ))}
           </div>
 
-          {
-            isShowButton && (
-              <motion.div {...reveal(reduce, { y: 30 }, 0.7)} className="mt-10">
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="inline-block">
-                  <LinearBgButton href="/about">
-                    <div className="flex items-center gap-2">
-                      More About Us
-                      <span className="grid h-9 w-9 place-items-center rounded-full border border-white/60">
-                        <ArrowRight size={18} />
-                      </span>
-                    </div>
-                  </LinearBgButton>
-                </motion.div>
+          {isShowButton && (
+            <motion.div {...reveal(reduce, { y: 30 }, 0.7)} className="mt-10">
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="inline-block">
+                <LinearBgButton href="/about">
+                  <div className="flex items-center gap-2">
+                    More About Us
+                    <span className="grid h-9 w-9 place-items-center rounded-full border border-white/60">
+                      <ArrowRight size={18} />
+                    </span>
+                  </div>
+                </LinearBgButton>
               </motion.div>
-
-            )
-          }
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
