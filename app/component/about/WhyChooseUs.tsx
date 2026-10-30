@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
   Users,
@@ -14,11 +14,7 @@ import {
 import homeData from "@/app/data/home.json";
 import { SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-});
+
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const featureIcons = [Users, Lightbulb, Settings, BadgeCheck, House, Leaf];

@@ -107,7 +107,7 @@ export default function AboutSection({
           }}
           className="origin-center"
         >
-          <Plus className="text-gold" size={28} strokeWidth={1.5} />
+          <Plus className="text-white" size={28} strokeWidth={1.5} />
         </motion.div>
 
         <div className="ml-3 mt-3 flex gap-8">
