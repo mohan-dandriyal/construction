@@ -1,4 +1,10 @@
 {
+  "section" : {
+"Eyebrow" : "Our Gallery",
+"title" : "Explore Our",
+"lightTitle" : " Gallery",
+"dis" : "Explore our signature projects spanning luxury residential villas, bespoke interior styling, and iconic contemporary facades."
+  },
   "categories": ["All", "Architecture", "Interior", "Exterior", "Residential", "Commercial"],
   "items": [
     { "id": 1, "title": "Modern Luxury Villa", "category": "Architecture", "location": "Noida, Uttar Pradesh", "image": "/proj-1.png", "description": "Contemporary villa facade with warm architectural lighting, expansive cantilevered decks, and private lap pool." },

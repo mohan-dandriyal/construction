@@ -23,6 +23,7 @@ export default function EnquirySection() {
     >
       <div className="mx-auto grid max-w-[1300px] gap-12 px-4 py-14 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:py-20">
         <EnquiryIntro />
+        
         <div className="min-w-0 lg:self-start">
           <EnquiryForm />
         </div>

@@ -2,6 +2,8 @@
 
 :root {
   --color-ink: #f8f6f1;
+  --title-color: #e4e4e4;
+  --text-color: rgb(164, 164, 164);
   --color-muted: #d4d1cb;
   --color-gold: #d59a4c;
   --color-gold-light: #efb85f;
@@ -22,7 +24,7 @@
 body {
   margin: 0;
   background: #101314;
-  color: var(--color-ink);
+  /* color: var(--color-ink); */
   font-family: var(--font-body);
 }
 

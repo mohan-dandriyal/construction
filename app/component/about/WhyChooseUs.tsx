@@ -12,6 +12,7 @@ import {
   Leaf,
 } from "lucide-react";
 import homeData from "@/app/data/home.json";
+import { SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -78,20 +79,14 @@ export default function WhyChooseUs() {
             <span className="hidden h-px w-16 bg-[#d9a850] sm:block sm:w-20" />
           </div>
 
-          {/* heading */}
-          <h2
-            className={`${playfair.className} text-3xl md:text-4xl font-bold leading-[1.15]`}
-          >
-            {homeData.whyChooseUs.title}
-            <br />
-            <span className="text-[#c8963e]">{homeData.whyChooseUs.accent}</span>
-          </h2>
+        
 
-          <p
-            className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300"
-          >
-            {homeData.whyChooseUs.description}
-          </p>
+          <SectionTitle >
+          {homeData.whyChooseUs.title} <br />
+            <SectionHeiglightText text={homeData.whyChooseUs.accent} />
+          </SectionTitle>
+
+          <SectionDescription className="sm:w-10/12" text={homeData.whyChooseUs.description} />
 
           {/* feature grid */}
           <motion.ul

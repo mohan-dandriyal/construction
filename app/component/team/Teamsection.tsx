@@ -6,7 +6,7 @@ import { Playfair_Display, Poppins } from "next/font/google";
 import TeamCard from "@/app/component/team/Teamcard";
 import Pagination from "@/app/component/team/Pagination";
 import { teamMembers } from "@/app/utills/teams";
-import { ColorFullTitleText, SectionTitle } from "../SectionTitle";
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -53,14 +53,15 @@ export default function TeamSection() {
         className={`${serif.variable} ${sans.variable} relative overflow-hidden bg-[#0b141d] px-4 py-14 font-[family-name:var(--font-sans)] text-white sm:px-8 lg:py-20`}
       >
 
+        <div className="flex justify-center">
+          <Eyebrow text="Our Team" />
+        </div>
 
-      <SectionTitle
-        innerTitle={"Our Team"}
-        mainTitle={<div>
-          Meet Our <ColorFullTitleText content="Experts" />
-        </div>}
-        description={"Our team of experienced architects, designers and project professionals work together to turn ideas into functional, aesthetic and sustainable spaces."}
-      />
+        <SectionTitle className="mx-auto text-center">
+          Meet Our {" "}
+          <SectionHeiglightText text="Experts" />
+        </SectionTitle>
+        <SectionDescription className="lg:w-6/12 sm:w-10/12 text-center mx-auto" text={"Our team of experienced architects, designers and project professionals work together to turn ideas into functional, aesthetic and sustainable spaces."} />
 
 
         {/* dotted decoration, bottom-left */}

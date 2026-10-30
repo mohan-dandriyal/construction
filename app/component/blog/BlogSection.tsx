@@ -1,9 +1,8 @@
 "use client";
 
-import { SectionTitle, ColorFullTitleText } from "../SectionTitle";
-import { blogs } from "@/app/utills/blogData";
 import BlogCard from "../BlogCard";
-
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
+import blog from "@/app/data/blog.json"
 
 export default function BlogSection() {
     return (
@@ -11,17 +10,19 @@ export default function BlogSection() {
 
             {/*  -------- section title ----------- */}
 
-            <SectionTitle
-                innerTitle={"Our Blog"}
-                mainTitle={<div>
-                    Latest <ColorFullTitleText content="Articles" />  & Insights
-                </div>}
-                description={"Explore our latest articles, expert tips and design insights to help you create better spaces and a more beautiful tomorrow."}
-            />
+
+            <div className="flex justify-center">
+                <Eyebrow text={blog.section.eyebrow} />
+            </div>
+            <SectionTitle className="text-center mx-auto">
+                {blog.section.title} {" "} <SectionHeiglightText text={blog.section.accent} /> {" "}  {blog.section.suffix}
+            </SectionTitle>
+
+            <SectionDescription className="lg:w-6/12 sm:w-8/12 mx-auto text-center" text="Explore our latest articles, expert tips and design insights to help you create better spaces and a more beautiful tomorrow." />
 
 
             <div className="mx-auto grid max-w-7xl mt-10 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {blogs?.map((post, i) => (
+                {blog.blogs?.map((post, i) => (
                     <BlogCard
                         key={i + 1}
                         post={post}

@@ -4,29 +4,29 @@
 
 
 import {
-   House, Leaf, Warehouse,
-  Box,
-  Sofa,
-  PencilRuler,
+    House, Leaf, Warehouse,
+    Box,
+    Sofa,
+    PencilRuler,
 } from "lucide-react";
 
-import {SectionTitle, ColorFullTitleText } from '@/app/component/SectionTitle';
 
 
 import { Playfair_Display, Poppins } from "next/font/google";
 import ServiceCard from "./ServiceCard";
 import serviceData from "@/app/data/services.json";
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
 const serif = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-serif",
+    subsets: ["latin"],
+    weight: ["500", "600", "700"],
+    variable: "--font-serif",
 });
 
 const sans = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-sans",
+    subsets: ["latin"],
+    weight: ["300", "400", "500"],
+    variable: "--font-sans",
 });
 
 const serviceIcons = [House, Warehouse, Box, Sofa, PencilRuler, Leaf];
@@ -43,14 +43,17 @@ function ServiceSection() {
 
             <div className="mx-auto max-w-350">
                 {/* ----------- title --------  */}
-                <SectionTitle
-                    innerTitle={serviceData.section.eyebrow}
-                    mainTitle={<div>
-                        Architecture Solutions <br />
-                        <ColorFullTitleText content=" Tailored to Your Vision" />
-                    </div>}
-                    description={serviceData.section.description}
-                />
+                <div className="flex justify-center">
+                    <Eyebrow text={serviceData.section.eyebrow} className="text-center mx-auto" />
+                </div>
+
+                <SectionTitle className="text-center mx-auto">
+                    Architecture Solutions
+                    <br />
+                    <SectionHeiglightText text="Tailored to Your Vision" />
+                </SectionTitle>
+
+                <SectionDescription text={serviceData.section.description} className="lg:w-6/12 sm:w-9/12 text-center mx-auto" />
 
                 {/* Grid */}
                 <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

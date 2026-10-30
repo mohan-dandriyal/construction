@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -9,22 +10,35 @@ import {
   useReducedMotion,
   type MotionProps,
 } from "framer-motion";
-import { Lightbulb, Users, Leaf, Award, ArrowRight, Plus } from "lucide-react";
+
+import {
+  Lightbulb,
+  Users,
+  Leaf,
+  Award,
+  ArrowRight,
+  Plus,
+} from "lucide-react";
+
 import { LinearBgButton } from "./ui/ThemeButtons";
 import homeData from "@/app/data/home.json";
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "./SectionHeader";
 
-const features = [
-  { Icon: Lightbulb, label: homeData.about.features[0] },
-  { Icon: Users, label: homeData.about.features[1] },
-  { Icon: Leaf, label: homeData.about.features[2] },
-  { Icon: Award, label: homeData.about.features[3] },
-];
+const GOLD = "#c8963e";
+
+const featureIcons = [Lightbulb, Users, Leaf, Award];
+
+const features = homeData.about.features.map((label, index) => ({
+  Icon: featureIcons[index % featureIcons.length],
+  label,
+}));
 
 const tagline = homeData.about.tagline;
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 /**
- * Scroll-reveal props (replaces AOS).
- * Spread onto any motion.* element: <motion.div {...reveal(reduce, { y: 30 })} />
+ * Reusable scroll reveal animation.
  */
 function reveal(
   reduce: boolean | null,
@@ -35,93 +49,110 @@ function reveal(
     initial: reduce ? false : { opacity: 0, ...from },
     whileInView: { opacity: 1, x: 0, y: 0, scale: 1 },
     viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.8, delay, ease: "easeOut" as const },
+    transition: {
+      duration: reduce ? 0 : 0.8,
+      delay: reduce ? 0 : delay,
+      ease,
+    },
   };
 }
 
-// Counts up from 0 when scrolled into view
-function CountUp({ to, suffix }: { to: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const [n, setN] = useState(0);
 
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, {
-      duration: 2,
-      ease: "easeOut",
-      onUpdate: (v) => setN(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [inView, to]);
-
-  return (
-    <span ref={ref} className="font-display text-[64px] leading-none font-medium text-white">
-      {n}
-      <span className="text-gold">{suffix}</span>
-    </span>
-  );
-}
-
-export default function AboutSection({ isShowButton = false }: { isShowButton?: boolean }) {
+export default function AboutSection({
+  isShowButton = false,
+}: {
+  isShowButton?: boolean;
+}) {
   const reduce = useReducedMotion();
 
   return (
-    <section id="about" className="relative overflow-hidden bg-[#0b1218] px-4 py-16 sm:px-8 lg:px-[4%] lg:py-20">
-      {/* Blueprint drawing, bottom-right */}
+    <section
+      id="about"
+      className="relative isolate overflow-hidden bg-[#0b1218] px-4 py-16 sm:px-8 lg:px-[4%] lg:py-24"
+    >
+      {/* Ambient background accents */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-20 -z-10 h-80 w-80 rounded-full opacity-[0.07] blur-[100px]"
+        style={{ backgroundColor: GOLD }}
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-[#c8963e]/[0.04] blur-[120px]"
+      />
+
+      {/* Blueprint drawing */}
       <motion.div
-        {...reveal(reduce, { x: 40 }, 0.3)}
-        className="pointer-events-none absolute right-0 bottom-0 hidden h-[420px] w-[44%] opacity-70 lg:block"
+        {...reveal(reduce, { x: 40, y: 20 }, 0.3)}
+        className="pointer-events-none absolute bottom-0 right-0 hidden h-[420px] w-[44%] opacity-60 lg:block"
       >
         <Image
           src={homeData.about.blueprintImage}
           alt=""
           fill
-          className=""
+          sizes="44vw"
+          className="object-contain object-right-bottom"
         />
       </motion.div>
 
-      {/* Vertical tagline, far right */}
+      {/* Vertical tagline */}
       <motion.div
-        {...reveal(reduce, { x: 40 }, 0.5)}
-        className="absolute top-14 right-[6%] hidden xl:block"
+        {...reveal(reduce, { x: 30 }, 0.3)}
+        className="absolute right-[5%] top-14 hidden xl:block"
       >
-        <Plus className="text-gold" size={28} strokeWidth={1.5} />
-        <div className="mt-3 ml-3 flex gap-8">
-          {/* line draws downward */}
+        <motion.div
+          transition={{
+            duration: 18,
+          }}
+          className="origin-center"
+        >
+          <Plus className="text-gold" size={28} strokeWidth={1.5} />
+        </motion.div>
+
+        <div className="ml-3 mt-3 flex gap-8">
           <motion.span
             initial={reduce ? false : { scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+            transition={{
+              duration: reduce ? 0 : 1,
+              delay: reduce ? 0 : 0.5,
+              ease,
+            }}
             style={{ originY: 0 }}
-            className="block w-px bg-gold border-l border-[#c8963e]"
+            className="block w-px bg-gradient-to-b from-[#d9a850] to-transparent"
           />
+
           <div className="space-y-1 pt-3 text-[17px] leading-8 tracking-wide text-[#aeb6bf]">
-            {tagline.map((w, i) => (
+            {tagline.map((word, index) => (
               <motion.div
-                key={w}
-                {...reveal(reduce, { y: 12 }, 0.8 + i * 0.12)}
-                className={i === tagline.length - 1 ? "text-white" : ""}
+                key={`${word}-${index}`}
+                {...reveal(reduce, { y: 12 }, 0.5 + index * 0.12)}
+                className={
+                  index === tagline.length - 1
+                    ? "font-medium text-white"
+                    : ""
+                }
               >
-                {w}
+                {word}
               </motion.div>
             ))}
           </div>
         </div>
       </motion.div>
 
-      <div className="relative mx-auto grid max-w-350 items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-8 xl:gap-12">
+      <div className="relative mx-auto grid max-w-360 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:gap-16">
         {/* Image collage */}
         <motion.div
-          {...reveal(reduce, { x: -60 })}
-          className="relative mx-auto h-[500px] w-full max-w-[620px] sm:h-[580px] lg:h-[660px] lg:max-w-none"
+          {...reveal(reduce, { x: -50, y: 10 })}
+          className="relative mx-auto h-[460px] w-full max-w-[620px] sm:h-[560px] lg:h-[640px] lg:max-w-none"
         >
-          {/* Main/Left Large Image */}
+          {/* Main image */}
           <motion.div
-            whileHover={{ scale: 1.015 }}
-            transition={{ duration: 0.4 }}
-            className="absolute left-0 top-0 h-[85%] w-[72%] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0d141b]"
+            whileHover={reduce ? undefined : { scale: 1.015 }}
+            transition={{ duration: 0.6, ease }}
+            className="absolute left-0 top-0 h-[85%] w-[72%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-2xl"
           >
             <Image
               src={homeData.about.image[0].src}
@@ -129,19 +160,28 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-center"
+              className="object-cover object-center "
             />
+
+            {/* Image overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b1218]/35 via-transparent to-transparent" />
+
+
           </motion.div>
 
-          {/* Secondary/Right Overlay Image */}
+          {/* Secondary image */}
           {homeData.about.image[1] && (
             <motion.div
-              initial={reduce ? false : { opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{ scale: 1.02 }}
-              className="absolute right-2 top-[14%] h-[60%] w-[48%] rounded-2xl overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.6)] border-2 border-white/20 bg-[#0d141b] z-10"
+              initial={reduce ? false : { opacity: 0, y: 35, x: 15 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: reduce ? 0 : 0.9,
+                delay: reduce ? 0 : 0.25,
+                ease,
+              }}
+              whileHover={reduce ? undefined : { scale: 1.025 }}
+              className="absolute right-2 top-[14%] z-10 h-[60%] w-[48%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
             >
               <Image
                 src={homeData.about.image[1].src}
@@ -150,79 +190,112 @@ export default function AboutSection({ isShowButton = false }: { isShowButton?: 
                 sizes="(max-width: 1024px) 50vw, 30vw"
                 className="object-cover object-center"
               />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
             </motion.div>
           )}
 
-          {/* Years badge */}
-          {homeData.about.years && (
-            <motion.div
-              initial={reduce ? false : { opacity: 0, scale: 0.8, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 140, damping: 16, delay: 0.5 }}
-              whileHover={{ scale: 1.04 }}
-              className="absolute right-0 bottom-0 z-20 flex h-[32%] w-[38%] min-w-[150px] flex-col items-center justify-center rounded-md border border-[#e0a04c]/70 bg-[#0d141b] text-center shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-            >
-              <CountUp to={homeData.about.years} suffix="+" />
-              <span className="my-2 block h-px w-8 bg-gold/70" />
-              <span className="text-[14px] text-[#aeb6bf]">{homeData.about.yearsLabel}</span>
-              <span className="mt-0.5 text-[14px] font-medium text-white">{homeData.about.yearsAccent}</span>
-            </motion.div>
-          )}
+
         </motion.div>
 
         {/* Text content */}
         <div className="relative lg:max-w-[640px]">
-          <div className="w-full">
-            <div className="mb-5 flex items-center gap-4 text-[#d9a850]">
-              <span className="h-px w-16 bg-[#d9a850] sm:w-20" />
-              <span className="text-sm font-medium uppercase tracking-[0.35em]">
-                {homeData.about.eyebrow}
-              </span>
-              <span className="hidden h-px w-16 bg-[#d9a850] sm:block sm:w-20" />
-            </div>
+          {/* Eyebrow */}
+          <Eyebrow text={homeData.about.eyebrow}
+            left={false} />
 
-            <motion.h2
-              {...reveal(reduce, { y: 30 }, 0.1)}
-              className="mt-4 font-[family-name:var(--font-serif)] font-display text-3xl md:text-4xl leading-[1.15] font-bold text-white sm:text-4.5xl"
-            >
-              {homeData.about.title}{" "}
-              <span className="text-[#c8963e]">{homeData.about.accent}</span>
-            </motion.h2>
-          </div>
+          <SectionTitle>
+            {homeData.about.title} <br />
+            <SectionHeiglightText text={homeData.about.accent} className="" />
+          </SectionTitle>
 
-          <motion.p
-            {...reveal(reduce, { y: 30 }, 0.2)}
-            className="mt-8 max-w-[600px] text-[17px] leading-8 text-[#c3cad1]"
+
+          {/* Description */}
+          <SectionDescription text={homeData.about.description} className="sm:w-10/12" />
+
+
+          {/* Features */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: reduce ? 0 : 0.12,
+                  delayChildren: reduce ? 0 : 0.15,
+                },
+              },
+            }}
+            className="mt-10 grid  grid-cols-1 gap-y-5 sm:grid-cols-2"
           >
-            {homeData.about.description}
-          </motion.p>
-
-          <div className="mt-10 grid max-w-[520px] grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
-            {features.map(({ Icon, label }, i) => (
-              <motion.div key={label} {...reveal(reduce, { scale: 0.85 }, 0.3 + i * 0.1)}>
-                <motion.div whileHover={{ x: 4 }} className="flex items-center gap-4">
+            {features.map(({ Icon, label }, index) => (
+              <motion.div
+                key={`${label}-${index}`}
+                variants={{
+                  hidden: reduce
+                    ? { opacity: 1 }
+                    : { opacity: 0, y: 18 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: reduce ? 0 : 0.6,
+                      ease,
+                    },
+                  },
+                }}
+              >
+                <motion.div
+                  whileHover={reduce ? undefined : { x: 5 }}
+                  className="group flex items-center gap-4"
+                >
                   <motion.span
-                    whileHover={{ rotate: 12, scale: 1.1 }}
-                    className="grid h-[52px] w-[52px] shrink-0 place-items-center rounded-full border border-gold/70 bg-gold/10 text-gold"
+                    whileHover={
+                      reduce
+                        ? undefined
+                        : { rotate: 8, scale: 1.08 }
+                    }
+                    transition={{ duration: 0.25 }}
+                    className="grid h-[50px] w-[50px] bg-[#d59824] text-white shrink-0 place-items-center rounded-full border border-[#d59824] bg-gold/[0.08] text-gold transition-colors duration-300 group-hover:bg-gold/15 group-hover:border-gold"
                   >
                     <Icon size={22} strokeWidth={1.5} />
                   </motion.span>
-                  <span className="text-base text-white">{label}</span>
+
+                  <span className="text-[15px] font-medium leading-6 text-[#e6e9ec] sm:text-base">
+                    {label}
+                  </span>
                 </motion.div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
+
+          {/* CTA */}
           {isShowButton && (
-            <motion.div {...reveal(reduce, { y: 30 }, 0.7)} className="mt-10">
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="inline-block">
-                <LinearBgButton href="/about">
-                  <div className="flex items-center gap-2">
-                    More About Us
-                    <span className="grid h-9 w-9 place-items-center rounded-full border border-white/60">
+            <motion.div
+              {...reveal(reduce, { y: 22 }, 0.6)}
+              className="mt-10"
+            >
+
+              <motion.div
+                whileHover={reduce ? undefined : { scale: 1.035 }}
+                whileTap={reduce ? undefined : { scale: 0.97 }}
+                className="inline-block"
+              >
+                <LinearBgButton href={homeData.about.button.href}>
+                  <div className="flex items-center gap-3">
+                    <span>{homeData.about.button.label}</span>
+
+                    <motion.span
+                      whileHover={
+                        reduce ? undefined : { rotate: -45 }
+                      }
+                      transition={{ duration: 0.25 }}
+                      className="grid h-9 w-9 place-items-center rounded-full border border-white/60"
+                    >
                       <ArrowRight size={18} />
-                    </span>
+                    </motion.span>
                   </div>
                 </LinearBgButton>
               </motion.div>

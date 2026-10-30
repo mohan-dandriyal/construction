@@ -74,11 +74,11 @@ function BlogCard({ post, ind = 0 }: BlogCardProps) {
                         {post.category}
                     </div>
 
-                    <h3 className="mt-5 font-display text-[26px] leading-[1.3] font-medium text-white">
+                    <h3 className="mt-5 font-display text-[26px] leading-[1.3] font-medium text-white/80">
                         {post.title}
                     </h3>
 
-                    <p className="mt-4 text-[15px] leading-[1.9] text-[#aeb6bf]">
+                    <p className="mt-4 text-[15px] leading-[1.9] text-gray-400">
                         {post.excerpt?.slice(0, 90)}
                     </p>
 

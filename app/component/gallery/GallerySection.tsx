@@ -12,12 +12,12 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
-import {
-  galleryItems,
-  type GalleryItem,
-} from "@/app/utills/galleryData";
-import { SectionTitle, ColorFullTitleText } from "@/app/component/SectionTitle";
+
+
+import data from "@/app/data/gallery.json"
+
 import { Playfair_Display, Poppins } from "next/font/google";
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -51,9 +51,9 @@ export default function GallerySection() {
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const filteredItems = galleryItems;
+  const filteredItems = data.items;
 
-  const activeItem: GalleryItem | null =
+  const activeItem: (typeof data.items)[number] | null =
     activeModalIndex !== null ? filteredItems[activeModalIndex] ?? null : null;
 
   const handlePrev = useCallback(() => {
@@ -92,58 +92,17 @@ export default function GallerySection() {
     <section
       className={`${serif.variable} ${sans.variable} bg-[#08121b] px-4 py-16 font-[family-name:var(--font-sans)] text-white sm:px-8 lg:py-24`}
     >
-      <div className="mx-auto max-w-[1400px]">
-        {/* Title */}
-        <SectionTitle
-          innerTitle={"Our Gallery"}
-          mainTitle={
-            <div>
-              Explore Our
-              <ColorFullTitleText content=" Gallery" />
-            </div>
-          }
-          description={
-            "Explore our signature projects spanning luxury residential villas, bespoke interior styling, and iconic contemporary facades."
-          }
-        />
+      <div className="mx-auto max-w-360">
+        <div className="flex justify-center">
+          <Eyebrow text={data.section.Eyebrow} />
+        </div>
 
-        {/* Category Filter Tabs */}
-        {/* <div className="mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {galleryCategories.map((category) => {
-            const count =
-              category === "All"
-                ? galleryItems.length
-                : galleryItems.filter((i) => i.category === category).length;
-            const isActive = selectedCategory === category;
+        <SectionTitle className="text-center mx-auto">
+          {data.section.title}
+          <SectionHeiglightText text={data.section.lightTitle} />
+        </SectionTitle>
+        <SectionDescription className="lg:w-6/12 sm:w-10/12 mx-auto text-center" text={data.section.dis} />
 
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setActiveModalIndex(null);
-                }}
-                className={`group relative rounded-full px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] transition-all duration-300 sm:text-sm ${
-                  isActive
-                    ? "bg-[#d59a4c] text-[#0f1720] shadow-lg shadow-[#d59a4c]/20"
-                    : "border border-white/10 bg-[#0d1824] text-white/70 hover:border-[#d59a4c]/60 hover:text-white"
-                }`}
-              >
-                <span>{category}</span>
-                <span
-                  className={`ml-2 inline-block rounded-full px-1.5 py-0.5 text-[10px] font-semibold tracking-normal transition-colors ${
-                    isActive
-                      ? "bg-[#0f1720]/20 text-[#0f1720]"
-                      : "bg-white/10 text-white/60 group-hover:bg-[#d59a4c]/20 group-hover:text-[#d59a4c]"
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div> */}
 
         {/* Gallery Grid */}
         <motion.div

@@ -22,7 +22,6 @@ export default function Home() {
         <ProjectSection />
       </Suspense>
 
-
       <StatsCounterSection />
 
       <ProcessSection />

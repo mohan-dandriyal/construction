@@ -30,7 +30,79 @@
       "Sustainable Solutions",
       "Expert Team"
     ],
-    "button": "More About Us"
+    "button": {
+      "href": "/about",
+      "label": "More About Us"
+    }
+  },
+  "projectSec": {
+    "section": {
+      "id": "projects",
+      "eyebrow": "Our Project",
+      "title": "Architecture Solutions",
+      "highlight": "for Every Space",
+      "background": "#0d1319",
+      "maxWidth": "1900px"
+    },
+    "slider": {
+      "loop": true,
+      "speed": 600,
+      "slidesPerView": 1,
+      "keyboardEnabled": true
+    },
+    "navigation": {
+      "previousLabel": "Previous slide",
+      "nextLabel": "Next slide",
+      "buttonText": "Discover More",
+      "showPagination": true
+    },
+    "projects": [
+      {
+        "id": 1,
+        "eyebrow": "Modern",
+        "title": "3D Visualizations",
+        "text": "Explore realistic 3D visualizations that bring architectural concepts to life, helping you experience every detail before construction begins.",
+        "image": "/proj-1.png",
+        "imageAlt": "Modern architectural 3D visualization",
+        "href": "/services/3d-visualizations"
+      },
+      {
+        "id": 2,
+        "eyebrow": "Contemporary",
+        "title": "Interior Design",
+        "text": "Transform interiors with thoughtful layouts, refined materials, and timeless details designed to balance everyday comfort with contemporary style.",
+        "image": "/proj-1.png",
+        "imageAlt": "Contemporary interior design project",
+        "href": "/services/interior-design"
+      },
+      {
+        "id": 3,
+        "eyebrow": "Elegant",
+        "title": "Exterior Design",
+        "text": "Create memorable exteriors through balanced proportions, carefully selected materials, and architectural details that complement their surroundings.",
+        "image": "/proj-1.png",
+        "imageAlt": "Elegant exterior architecture project",
+        "href": "/services/exterior-design"
+      },
+      {
+        "id": 4,
+        "eyebrow": "Detailed",
+        "title": "Architectural Plans",
+        "text": "Turn creative ideas into practical architectural plans with carefully considered spaces, functional layouts, and attention to every detail.",
+        "image": "/proj-1.png",
+        "imageAlt": "Detailed architectural planning project",
+        "href": "/services/architectural-plans"
+      },
+      {
+        "id": 5,
+        "eyebrow": "Tailored",
+        "title": "Custom Projects",
+        "text": "Bring your individual vision to life with tailored architectural solutions shaped around your requirements, space, and personal style.",
+        "image": "/proj-1.png",
+        "imageAlt": "Custom architecture project",
+        "href": "/services/custom-projects"
+      }
+    ]
   },
   "whyChooseUs": {
     "eyebrow": "Why Choose Us",
@@ -66,28 +138,63 @@
     ]
   },
   "process": {
-    "eyebrow": "Our Process",
-    "title": "Our",
-    "accent": "Working Process",
-    "description": "From initial consultation to final execution, we follow a streamlined process to deliver exceptional design solutions with precision and care.",
+    "section": {
+      "id": "process",
+      "eyebrow": "Our Process",
+      "title": "Our",
+      "highlight": " Working Process",
+      "description": "From initial consultation to final execution, we follow a streamlined process to deliver exceptional design solutions with precision and care."
+    },
+    "animation": {
+      "duration": 0.7,
+      "stagger": 0.16,
+      "viewportAmount": 0.2
+    },
+    "connector": {
+      "enabled": true,
+      "color": "#d9a55b",
+      "strokeWidth": 1.5,
+      "dashArray": "6 5"
+    },
     "steps": [
       {
+        "id": 1,
+        "number": "01",
         "title": "Visit Project",
-        "description": "We understand your requirements and visit the site to assess the space and possibilities."
+        "description": "We understand your requirements and visit the site to assess the space and possibilities.",
+        "icon": "HardHat"
       },
       {
+        "id": 2,
+        "number": "02",
         "title": "Planning Design",
-        "description": "Our team creates detailed plans and design concepts tailored to your needs."
+        "description": "Our team creates detailed plans and design concepts tailored to your needs.",
+        "icon": "PencilRuler"
       },
       {
+        "id": 3,
+        "number": "03",
         "title": "Project Sketch",
-        "description": "We develop 2D/3D sketches and visualizations to give you a clear view of the final outcome."
+        "description": "We develop 2D/3D sketches and visualizations to give you a clear view of the final outcome.",
+        "icon": "DraftingCompass"
       },
       {
+        "id": 4,
+        "number": "04",
         "title": "Start Working",
-        "description": "Once approved, we begin execution with quality materials and expert craftsmanship."
+        "description": "Once approved, we begin execution with quality materials and expert craftsmanship.",
+        "icon": "Handshake"
       }
     ]
+  },
+  "blog": {
+    "eyebrow": "Our Blog",
+    "titleStart": "Latest",
+    "titleHighlight": "Articles",
+    "titleEnd": "& Insights",
+    "description": "Explore our latest articles, expert tips and design insights to help you create better spaces and a more beautiful tomorrow.",
+    "backgroundColor": "#08111a",
+    "id": "journal"
   },
   "stats": [
     {
@@ -107,32 +214,65 @@
       "label": "Design Awards"
     }
   ],
-  "testimonials": [
-    {
-      "name": "Priya Mehta",
-      "role": "Homeowner, Gurugram",
-      "avatar": "/profile-1.jpg",
-      "text": "From the first meeting they listened carefully and turned our rough ideas into a living room we love. Every material and finish was chosen with care."
+  "testimonialSec": {
+    "theme": {
+      "gold": "#c9954f",
+      "background": "#0b141d",
+      "cardStart": "#17222d",
+      "cardEnd": "#111b25",
+      "text": "#cfd5db",
+      "dotBorder": "#77808a"
     },
-    {
-      "name": "Rahul Sharma",
-      "role": "Homeowner, New Delhi",
-      "avatar": "/profile-1.jpg",
-      "text": "Our home was just a basic space before, but their design completely transformed it into a beautiful and functional home. The team understood our needs, suggested creative ideas and delivered exactly what we imagined. Very professional, timely and great attention to detail. Highly recommended!"
+    "section": {
+      "id": "testimonials",
+      "eyebrow": "Testimonial",
+      "headingStart": "What They’re Talking  About",
+      "headingAccent": "Our Work",
+      "headingEnd": "?",
+      "image": "/service-1.png",
+      "imageAlt": "Luxury living room interior"
     },
-    {
-      "name": "Ankit Verma",
-      "role": "Villa Owner, Noida",
-      "avatar": "/profile-1.jpg",
-      "text": "Delivered on schedule and within budget. The lighting and woodwork gave our villa a warm, premium feel that guests always comment on."
+    "carousel": {
+      "initialIndex": 1,
+      "autoplayInterval": 5000,
+      "pauseOnHover": true
     },
-    {
-      "name": "Neha Kapoor",
-      "role": "Apartment Owner, Faridabad",
-      "avatar": "/profile-1.jpg",
-      "text": "A smooth experience from concept to handover. Smart storage ideas made our compact apartment feel open and elegant."
-    }
-  ],
+    "animation": {
+      "imageDuration": 1.2,
+      "cardDuration": 0.8,
+      "cardDelay": 0.3,
+      "contentDuration": 0.45,
+      "quoteDelay": 0.2,
+      "avatarStiffness": 200,
+      "avatarDamping": 14
+    },
+    "testimonials": [
+      {
+        "name": "Priya Mehta",
+        "role": "Homeowner, Gurugram",
+        "avatar": "/profile-1.jpg",
+        "text": "From the first meeting they listened carefully and turned our rough ideas into a living room we love. Every material and finish was chosen with care."
+      },
+      {
+        "name": "Rahul Sharma",
+        "role": "Homeowner, New Delhi",
+        "avatar": "/profile-1.jpg",
+        "text": "Our home was just a basic space before, but their design completely transformed it into a beautiful and functional home. The team understood our needs, suggested creative ideas and delivered exactly what we imagined. Very professional, timely and great attention to detail. Highly recommended!"
+      },
+      {
+        "name": "Ankit Verma",
+        "role": "Villa Owner, Noida",
+        "avatar": "/profile-1.jpg",
+        "text": "Delivered on schedule and within budget. The lighting and woodwork gave our villa a warm, premium feel that guests always comment on."
+      },
+      {
+        "name": "Neha Kapoor",
+        "role": "Apartment Owner, Faridabad",
+        "avatar": "/profile-1.jpg",
+        "text": "A smooth experience from concept to handover. Smart storage ideas made our compact apartment feel open and elegant."
+      }
+    ]
+  },
   "visualizationSlides": [
     {
       "eyebrow": "Modern",

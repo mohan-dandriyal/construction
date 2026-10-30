@@ -1,9 +1,71 @@
 {
-  "section": { "eyebrow": "Our Blog", "title": "Latest", "accent": "Articles", "suffix": " & Insights", "description": "Explore our latest articles, expert tips and design insights to help you create better spaces and a more beautiful tomorrow." },
+  "section": {
+    "eyebrow": "Our Blog",
+    "title": "Latest",
+    "accent": "Articles",
+    "suffix": " & Insights",
+    "description": "Explore our latest articles, expert tips and design insights to help you create better spaces and a more beautiful tomorrow."
+  },
   "blogs": [
-    { "srn": 1, "slug": "modern-living-room-design-ideas", "day": "12", "month": "OCT 2024", "category": "ARCHITECTURE", "title": "Modern Living Room Design Ideas for Indian Homes", "excerpt": "Discover stylish and functional living room design ideas that combine comfort, tradition and modern aesthetics, perfect for Indian homes.", "image": "/ser-2.jpg" },
-    { "slug": "top-5-interior-design-trends", "day": "08", "month": "OCT 2024", "category": "INTERIOR DESIGN", "title": "Top 5 Interior Design Trends for 2024", "excerpt": "Explore the top interior design trends for 2024 to give your home a modern, stylish and timeless look.", "image": "/ser-4.webp" },
-    { "slug": "plan-a-functional-modular-kitchen", "day": "05", "month": "OCT 2024", "category": "RENOVATION", "title": "How to Plan a Functional Modular Kitchen", "excerpt": "Learn how to plan a functional modular kitchen with smart storage, modern materials and an efficient layout.", "image": "/ser-5.jpg" }
+    {
+      "srn": 1,
+      "slug": "modern-living-room-design-ideas",
+      "day": "12",
+      "month": "OCT 2024",
+      "category": "ARCHITECTURE",
+      "title": "Modern Living Room Design Ideas for Indian Homes",
+      "excerpt": "Discover stylish and functional living room design ideas that combine comfort, tradition and modern aesthetics, perfect for Indian homes.",
+      "image": "/ser-2.jpg"
+    },
+    {
+      "slug": "top-5-interior-design-trends",
+      "day": "08",
+      "month": "OCT 2024",
+      "category": "INTERIOR DESIGN",
+      "title": "Top 5 Interior Design Trends for 2024",
+      "excerpt": "Explore the top interior design trends for 2024 to give your home a modern, stylish and timeless look.",
+      "image": "/ser-4.webp"
+    },
+    {
+      "slug": "plan-a-functional-modular-kitchen",
+      "day": "05",
+      "month": "OCT 2024",
+      "category": "RENOVATION",
+      "title": "How to Plan a Functional Modular Kitchen",
+      "excerpt": "Learn how to plan a functional modular kitchen with smart storage, modern materials and an efficient layout.",
+      "image": "/ser-5.jpg"
+    }
   ],
-  "posts": [{ "id": "1", "day": "12", "monthYear": "OCT 2024", "category": "ARCHITECTURE", "title": "Modern Living Room", "accent": "Design Ideas", "lead": "Thoughtful living spaces balance comfort, character, and the way people actually live.", "intro": "A successful living room begins with a clear understanding of movement, light, and daily rituals. The strongest designs combine practical planning with a few memorable architectural details.", "image": "/ser-2.jpg", "imageAlt": "Modern living room interior", "sections": [{ "title": "Start with the", "accent": "flow", "paragraphs": ["Arrange the main furniture around a natural route through the room, keeping circulation open and making conversation feel effortless.", "Layered lighting, warm materials, and carefully chosen textures help the room feel welcoming at every time of day."], "quote": "Good interiors make everyday life feel considered." }, { "title": "Let the details", "accent": "speak", "paragraphs": ["Use artwork, joinery, and locally sourced finishes to give a contemporary room a sense of place without visual clutter."] }] }]
+  "posts": [
+    {
+      "id": "1",
+      "day": "12",
+      "monthYear": "OCT 2024",
+      "category": "ARCHITECTURE",
+      "title": "Modern Living Room",
+      "accent": "Design Ideas",
+      "lead": "Thoughtful living spaces balance comfort, character, and the way people actually live.",
+      "intro": "A successful living room begins with a clear understanding of movement, light, and daily rituals. The strongest designs combine practical planning with a few memorable architectural details.",
+      "image": "/ser-2.jpg",
+      "imageAlt": "Modern living room interior",
+      "sections": [
+        {
+          "title": "Start with the",
+          "accent": "flow",
+          "paragraphs": [
+            "Arrange the main furniture around a natural route through the room, keeping circulation open and making conversation feel effortless.",
+            "Layered lighting, warm materials, and carefully chosen textures help the room feel welcoming at every time of day."
+          ],
+          "quote": "Good interiors make everyday life feel considered."
+        },
+        {
+          "title": "Let the details",
+          "accent": "speak",
+          "paragraphs": [
+            "Use artwork, joinery, and locally sourced finishes to give a contemporary room a sense of place without visual clutter."
+          ]
+        }
+      ]
+    }
+  ]
 }

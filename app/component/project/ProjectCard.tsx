@@ -6,8 +6,10 @@ import { Playfair_Display, DM_Sans, Barlow } from "next/font/google";
 import { motion, useReducedMotion } from "framer-motion";
 import { Building2, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projectDetails } from "@/app/utills/projectData";
-import { ColorFullTitleText, SectionTitle } from "../SectionTitle";
 import { LinearBgButton } from "../ui/ThemeButtons";
+import { Eyebrow, SectionHeiglightText, SectionTitle } from "../SectionHeader";
+
+import data from "@/app/data/projects.json"
 
 const playfair = Playfair_Display({
     subsets: ["latin"],
@@ -28,7 +30,7 @@ export default function ProjectCard() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [page, setPage] = useState(1);
 
-    const projects = projectDetails ?? [];
+    const projects = data.projects ?? [];
     const totalPages = Math.max(1, Math.ceil(projects.length / PAGE_SIZE));
     const start = (page - 1) * PAGE_SIZE;
     const visibleProjects = projects.slice(start, start + PAGE_SIZE);
@@ -45,15 +47,17 @@ export default function ProjectCard() {
     return (
 
         <section className="mt-20">
-            <SectionTitle
-                innerTitle={"Our Projects"}
-                mainTitle={<div>
-                    Architecture Solutions
-                    < br />
-                    <ColorFullTitleText content="  for Every Space" />
-                </div>}
-            />
 
+<div className="max-w-360 mx-auto">
+
+            <div className="flex justify-center">
+                <Eyebrow text={data.section.Eyebrow} />
+            </div>
+
+            <SectionTitle className="mx-auto text-center" >
+                {data.section.title}  <br />
+                <SectionHeiglightText text={data.section.accent} />
+            </SectionTitle>
 
             <div
                 ref={sectionRef}
@@ -117,7 +121,7 @@ export default function ProjectCard() {
                                     </h2>
 
                                     <p className="mt-6 max-w-lg text-lg leading-relaxed text-neutral-400">
-                                        {project?.discription}
+                                        {project?.description}
                                     </p>
 
                                     <LinearBgButton href={`/projects/1`}>
@@ -181,6 +185,7 @@ export default function ProjectCard() {
                     </nav>
                 )}
             </div>
+</div>
         </section>
 
     );

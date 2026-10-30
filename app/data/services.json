@@ -1,12 +1,167 @@
 {
-  "section": { "eyebrow": "Our Services", "title": "Designing Spaces", "accent": "That Inspire Life", "description": "From concept to completion, we offer a comprehensive range of architectural services tailored to your vision. Our expert team creates functional, aesthetic, and sustainable spaces for modern living." },
+  "section": {
+    "eyebrow": "Our Services",
+    "title": "Designing Spaces",
+    "accent": "That Inspire Life",
+    "description": "From concept to completion, we offer a comprehensive range of architectural services tailored to your vision. Our expert team creates functional, aesthetic, and sustainable spaces for modern living."
+  },
   "items": [
-    { "slug": "home-interior-design", "title": "Home Interior Design", "category": "Interior Design", "short": "Interior Design", "description": "Stylish and functional interiors that reflect your personality and enhance everyday living.", "image": "/service-1.png", "href": "/services/home-interior-design", "paragraphs": ["A well-designed home interior enhances comfort, functionality, and aesthetics, creating a space that truly feels like home. Our home interior design services focus on blending your lifestyle, personality, and preferences with modern design trends to create beautiful and practical living spaces.", "From space planning and color selection to furniture, lighting, and décor, we provide complete interior solutions that transform ordinary spaces into stylish, functional, and inviting homes."], "quote": "Great interior design is not just about how a space looks, but how it makes you feel at home.", "whyIntro": "With a focus on creativity, functionality, and attention to detail, we create interiors that reflect your style and enhance your everyday living.", "features": ["Personalized design solutions", "Expert team of interior designers", "Modern and innovative concepts", "On-time project delivery", "High-quality materials and finishes", "Cost-effective and transparent pricing"], "processIntro": "We follow a streamlined process to ensure a smooth and successful project experience." },
-    { "slug": "home-exterior-design", "title": "Home Exterior Design", "category": "Exterior Design", "short": "Exterior Design", "description": "Elegant and durable exterior designs that create a lasting first impression with modern aesthetics.", "image": "/ser-6.webp", "href": "/services/home-exterior-design", "paragraphs": ["Your home's exterior makes the first impression. We design facades, entrances and outdoor spaces that combine modern aesthetics with durable, weather-ready materials."], "quote": "The exterior is the handshake of a home. It should promise what waits inside.", "whyIntro": "We balance curb appeal with long-term durability, so your exterior looks great and lasts for years.", "features": ["Elegant, modern elevations", "Weather-resistant materials", "Integrated landscape and lighting", "Energy-efficient design choices", "Detailed 3D elevation previews", "Transparent pricing and timelines"], "processIntro": "A clear, step-by-step process from first sketch to finished facade." },
-    { "slug": "2d-3d-design-layout", "title": "2D/3D Design Layout", "category": "Design Layout", "short": "Layout Design", "description": "Detailed 2D and 3D design layouts to help you visualize your dream space before construction.", "image": "/ser-3.png", "href": "/services/2d-3d-design-layout", "paragraphs": ["See your space before it is built. Our detailed 2D plans and realistic 3D visualizations help you understand layouts, proportions and finishes before construction begins."], "quote": "A good plan on paper saves a hundred changes on site.", "whyIntro": "Accurate layouts and lifelike renders give you clarity at every stage of the project.", "features": ["Accurate 2D floor plans", "Photo-realistic 3D renders", "Furniture and space planning", "Multiple layout options", "Quick revisions on feedback", "Ready-to-build drawings"], "processIntro": "From brief to final drawings, we keep every step visible and easy to follow." },
-    { "slug": "furnitures-design", "title": "Furniture's Design", "category": "Furniture Design", "short": "Furniture Design", "description": "Custom furniture designs that blend style, comfort, and functionality for modern spaces.", "image": "/ser-4.webp", "href": "/services/furnitures-design", "paragraphs": ["Custom furniture that fits your space, your habits and your taste. We design wardrobes, TV units, beds, tables and storage that blend comfort, style and function."], "quote": "Furniture should fit the way you live, not the other way around.", "whyIntro": "Made-to-measure pieces use every inch of your space and match your interiors perfectly.", "features": ["Made-to-measure designs", "Smart storage solutions", "Premium woods and finishes", "Matched to your interior style", "Skilled in-house craftsmanship", "Durable, easy-care materials"], "processIntro": "A simple process that takes your furniture from idea to installation." },
-    { "slug": "modern-home-interior", "title": "Modern Home Interior", "category": "Modern Interior", "short": "Modern Interior", "description": "Contemporary interior solutions with innovative design and space optimization for modern homes.", "image": "/ser-5.jpg", "href": "/services/modern-home-interior", "paragraphs": ["Modern home interiors prioritize clean lines, warm minimalist aesthetics, and open-plan flow to create calm, elegant living environments."], "quote": "Simplicity is the ultimate sophistication in modern living.", "whyIntro": "We design contemporary spaces that balance minimalism with cozy, functional luxury.", "features": ["Open-concept space optimization", "Architectural cove & ambient lighting", "Curated material & color palettes", "Seamless smart-home integration", "Custom cabinetry & concealed storage", "Sustainable & eco-friendly materials"], "processIntro": "A collaborative journey from concept moodboards to flawless interior styling." },
-    { "slug": "custom-design-plan", "title": "Custom Design Plan", "category": "Design Planning", "short": "Design Planning", "description": "Personalized design plans tailored to your needs, lifestyle, and budget.", "image": "/proj-1.png", "href": "/services/custom-design-plan", "paragraphs": ["No two homes or families are alike. Our custom design plans are built around your needs, lifestyle and budget, so every decision has a clear reason behind it."], "quote": "The best design plan is the one made only for you.", "whyIntro": "A personalized plan keeps your project focused, on budget and true to your vision.", "features": ["Plans shaped around your lifestyle", "Budget-first planning", "Phased, realistic timelines", "Clear material and cost breakdown", "Flexible changes along the way", "Dedicated project coordinator"], "processIntro": "A guided process that turns your goals into a plan ready to build." }
+    {
+      "slug": "home-interior-design",
+      "title": "Home Interior Design",
+      "category": "Interior Design",
+      "short": "Interior Design",
+      "description": "Stylish and functional interiors that reflect your personality and enhance everyday living.",
+      "image": "/service-1.png",
+      "href": "/services/home-interior-design",
+      "paragraphs": [
+        "A well-designed home interior enhances comfort, functionality, and aesthetics, creating a space that truly feels like home. Our home interior design services focus on blending your lifestyle, personality, and preferences with modern design trends to create beautiful and practical living spaces.",
+        "From space planning and color selection to furniture, lighting, and décor, we provide complete interior solutions that transform ordinary spaces into stylish, functional, and inviting homes."
+      ],
+      "quote": "Great interior design is not just about how a space looks, but how it makes you feel at home.",
+      "whyIntro": "With a focus on creativity, functionality, and attention to detail, we create interiors that reflect your style and enhance your everyday living.",
+      "features": [
+        "Personalized design solutions",
+        "Expert team of interior designers",
+        "Modern and innovative concepts",
+        "On-time project delivery",
+        "High-quality materials and finishes",
+        "Cost-effective and transparent pricing"
+      ],
+      "processIntro": "We follow a streamlined process to ensure a smooth and successful project experience."
+    },
+    {
+      "slug": "home-exterior-design",
+      "title": "Home Exterior Design",
+      "category": "Exterior Design",
+      "short": "Exterior Design",
+      "description": "Elegant and durable exterior designs that create a lasting first impression with modern aesthetics.",
+      "image": "/ser-6.webp",
+      "href": "/services/home-exterior-design",
+      "paragraphs": [
+        "Your home's exterior makes the first impression. We design facades, entrances and outdoor spaces that combine modern aesthetics with durable, weather-ready materials."
+      ],
+      "quote": "The exterior is the handshake of a home. It should promise what waits inside.",
+      "whyIntro": "We balance curb appeal with long-term durability, so your exterior looks great and lasts for years.",
+      "features": [
+        "Elegant, modern elevations",
+        "Weather-resistant materials",
+        "Integrated landscape and lighting",
+        "Energy-efficient design choices",
+        "Detailed 3D elevation previews",
+        "Transparent pricing and timelines"
+      ],
+      "processIntro": "A clear, step-by-step process from first sketch to finished facade."
+    },
+    {
+      "slug": "2d-3d-design-layout",
+      "title": "2D/3D Design Layout",
+      "category": "Design Layout",
+      "short": "Layout Design",
+      "description": "Detailed 2D and 3D design layouts to help you visualize your dream space before construction.",
+      "image": "/ser-3.png",
+      "href": "/services/2d-3d-design-layout",
+      "paragraphs": [
+        "See your space before it is built. Our detailed 2D plans and realistic 3D visualizations help you understand layouts, proportions and finishes before construction begins."
+      ],
+      "quote": "A good plan on paper saves a hundred changes on site.",
+      "whyIntro": "Accurate layouts and lifelike renders give you clarity at every stage of the project.",
+      "features": [
+        "Accurate 2D floor plans",
+        "Photo-realistic 3D renders",
+        "Furniture and space planning",
+        "Multiple layout options",
+        "Quick revisions on feedback",
+        "Ready-to-build drawings"
+      ],
+      "processIntro": "From brief to final drawings, we keep every step visible and easy to follow."
+    },
+    {
+      "slug": "furnitures-design",
+      "title": "Furniture's Design",
+      "category": "Furniture Design",
+      "short": "Furniture Design",
+      "description": "Custom furniture designs that blend style, comfort, and functionality for modern spaces.",
+      "image": "/ser-4.webp",
+      "href": "/services/furnitures-design",
+      "paragraphs": [
+        "Custom furniture that fits your space, your habits and your taste. We design wardrobes, TV units, beds, tables and storage that blend comfort, style and function."
+      ],
+      "quote": "Furniture should fit the way you live, not the other way around.",
+      "whyIntro": "Made-to-measure pieces use every inch of your space and match your interiors perfectly.",
+      "features": [
+        "Made-to-measure designs",
+        "Smart storage solutions",
+        "Premium woods and finishes",
+        "Matched to your interior style",
+        "Skilled in-house craftsmanship",
+        "Durable, easy-care materials"
+      ],
+      "processIntro": "A simple process that takes your furniture from idea to installation."
+    },
+    {
+      "slug": "modern-home-interior",
+      "title": "Modern Home Interior",
+      "category": "Modern Interior",
+      "short": "Modern Interior",
+      "description": "Contemporary interior solutions with innovative design and space optimization for modern homes.",
+      "image": "/ser-5.jpg",
+      "href": "/services/modern-home-interior",
+      "paragraphs": [
+        "Modern home interiors prioritize clean lines, warm minimalist aesthetics, and open-plan flow to create calm, elegant living environments."
+      ],
+      "quote": "Simplicity is the ultimate sophistication in modern living.",
+      "whyIntro": "We design contemporary spaces that balance minimalism with cozy, functional luxury.",
+      "features": [
+        "Open-concept space optimization",
+        "Architectural cove & ambient lighting",
+        "Curated material & color palettes",
+        "Seamless smart-home integration",
+        "Custom cabinetry & concealed storage",
+        "Sustainable & eco-friendly materials"
+      ],
+      "processIntro": "A collaborative journey from concept moodboards to flawless interior styling."
+    },
+    {
+      "slug": "custom-design-plan",
+      "title": "Custom Design Plan",
+      "category": "Design Planning",
+      "short": "Design Planning",
+      "description": "Personalized design plans tailored to your needs, lifestyle, and budget.",
+      "image": "/proj-1.png",
+      "href": "/services/custom-design-plan",
+      "paragraphs": [
+        "No two homes or families are alike. Our custom design plans are built around your needs, lifestyle and budget, so every decision has a clear reason behind it."
+      ],
+      "quote": "The best design plan is the one made only for you.",
+      "whyIntro": "A personalized plan keeps your project focused, on budget and true to your vision.",
+      "features": [
+        "Plans shaped around your lifestyle",
+        "Budget-first planning",
+        "Phased, realistic timelines",
+        "Clear material and cost breakdown",
+        "Flexible changes along the way",
+        "Dedicated project coordinator"
+      ],
+      "processIntro": "A guided process that turns your goals into a plan ready to build."
+    }
   ],
-  "defaultSteps": [{ "title": "Consultation & Understanding", "description": "We discuss your needs, style preferences, and budget." }, { "title": "Design Planning", "description": "We create detailed design concepts and 2D/3D layouts for your approval." }, { "title": "Execution & Installation", "description": "Our team handles the execution with precision and quality craftsmanship." }, { "title": "Final Handover", "description": "We ensure every detail is completed and deliver a result ready to enjoy." }]
+  "defaultSteps": [
+    {
+      "title": "Consultation & Understanding",
+      "description": "We discuss your needs, style preferences, and budget."
+    },
+    {
+      "title": "Design Planning",
+      "description": "We create detailed design concepts and 2D/3D layouts for your approval."
+    },
+    {
+      "title": "Execution & Installation",
+      "description": "Our team handles the execution with precision and quality craftsmanship."
+    },
+    {
+      "title": "Final Handover",
+      "description": "We ensure every detail is completed and deliver a result ready to enjoy."
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 import Reveal from "@/app/component/contact/Reveal";
 import { Instagram, Facebook, Linkedin, Pinterest } from "@/app/component/contact/Socialicons";
 import { contactLines, intro } from "@/app/utills/Enquiry";
+import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
 
 const socials = [
   { label: "Instagram", href: "#", Icon: Instagram },
@@ -13,22 +14,16 @@ export default function EnquiryIntro() {
   return (
     <div className="relative min-w-0">
       <Reveal>
-        <p className="text-sm font-medium uppercase tracking-[0.35em] text-[#d4a050]">
-          Get in touch
-        </p>
-        <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl md:text-4xl font-semibold leading-[1.15]">
-          <span className="block bg-gradient-to-b from-white to-[#aab0b8] bg-clip-text text-transparent">
-            Start Your
-          </span>
-          <span className="block bg-gradient-to-b from-[#ebbd70] to-[#a97832] bg-clip-text text-transparent">
-            Project With Us
-          </span>
-        </h2>
+        <Eyebrow text="Get in touch" left={false} />
+
+        <SectionTitle>
+          Start Your {" "}
+          <SectionHeiglightText text="Project With Us" />
+        </SectionTitle>
+        <SectionDescription text={intro} />
       </Reveal>
 
-      <Reveal delay={0.1}>
-        <p className="mt-6 max-w-lg text-lg leading-8 text-sm text-[#d5dae0]">{intro}</p>
-      </Reveal>
+
 
       {/* contact details */}
       <ul className="mt-8 space-y-6">

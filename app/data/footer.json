@@ -1,0 +1,129 @@
+
+{
+  "footer": {
+    "id": "contact",
+    "background": "#0a121a",
+    "textColor": "#cfd5db",
+    "accentColor": "#e0a04c",
+    "logo": {
+      "src": "/logo.png",
+      "alt": "Arcova Architecture Studio",
+      "width": 440,
+      "height": 130
+    },
+    "backgroundImage": {
+      "src": "/footer-bg.png",
+      "alt": "",
+      "opacity": 30
+    },
+    "brand": {
+      "description": "At Arcova Architecture Studio, we design inspiring spaces that blend creativity, functionality and sustainability, turning your vision into timeless environments."
+    },
+    "headings": {
+      "quickLinks": "Quick Links",
+      "services": "Our Services",
+      "contact": "Contact Information"
+    },
+    "navigation": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About Us",
+        "href": "/about"
+      },
+      {
+        "label": "Our Projects",
+        "href": "/projects"
+      },
+      {
+        "label": "Our Services",
+        "href": "/services"
+      },
+      {
+        "label": "Gallery",
+        "href": "/gallery"
+      },
+      {
+        "label": "Team",
+        "href": "/team"
+      },
+      {
+        "label": "Contact Us",
+        "href": "#contact"
+      }
+    ],
+    "services": [
+      {
+        "title": "Architectural Design",
+        "href": "/services"
+      },
+      {
+        "title": "Interior Design",
+        "href": "/services"
+      },
+      {
+        "title": "Residential Planning",
+        "href": "/services"
+      },
+      {
+        "title": "Commercial Architecture",
+        "href": "/services"
+      }
+    ],
+    "socials": [
+      {
+        "label": "Facebook",
+        "href": "https://facebook.com/",
+        "icon": "facebook"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://instagram.com/",
+        "icon": "instagram"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "YouTube",
+        "href": "https://youtube.com/",
+        "icon": "youtube"
+      }
+    ],
+    "contactLines": [
+      {
+        "id": "phone",
+        "icon": "phone",
+        "lines": [
+          "+91 98765 43210",
+          "Mon - Sat, 9:00 AM - 6:00 PM"
+        ]
+      },
+      {
+        "id": "email",
+        "icon": "mail",
+        "lines": [
+          "info@arcova.com",
+          "Send us your project enquiry"
+        ]
+      },
+      {
+        "id": "location",
+        "icon": "location",
+        "lines": [
+          "New Delhi, India",
+          "Visit our architecture studio"
+        ]
+      }
+    ],
+    "copyright": {
+      "year": 2026,
+      "text": "Arcova Architecture Studio.",
+      "rights": "All Rights Reserved."
+    }
+  }
+}
