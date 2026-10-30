@@ -96,52 +96,6 @@ export default function AboutSection({
         />
       </motion.div>
 
-      {/* Vertical tagline */}
-      <motion.div
-        {...reveal(reduce, { x: 30 }, 0.3)}
-        className="absolute right-[5%] top-14 hidden xl:block"
-      >
-        <motion.div
-          transition={{
-            duration: 18,
-          }}
-          className="origin-center"
-        >
-          <Plus className="text-white" size={28} strokeWidth={1.5} />
-        </motion.div>
-
-        <div className="ml-3 mt-3 flex gap-8">
-          <motion.span
-            initial={reduce ? false : { scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: reduce ? 0 : 1,
-              delay: reduce ? 0 : 0.5,
-              ease,
-            }}
-            style={{ originY: 0 }}
-            className="block w-px bg-gradient-to-b from-[#d9a850] to-transparent"
-          />
-
-          <div className="space-y-1 pt-3 text-[17px] leading-8 tracking-wide text-[#aeb6bf]">
-            {tagline.map((word, index) => (
-              <motion.div
-                key={`${word}-${index}`}
-                {...reveal(reduce, { y: 12 }, 0.5 + index * 0.12)}
-                className={
-                  index === tagline.length - 1
-                    ? "font-medium text-white"
-                    : ""
-                }
-              >
-                {word}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
       <div className="relative mx-auto grid max-w-360 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:gap-16">
         {/* Image collage */}
         <motion.div
@@ -275,7 +229,7 @@ export default function AboutSection({
           {isShowButton && (
             <motion.div
               {...reveal(reduce, { y: 22 }, 0.6)}
-              className="mt-10"
+              className="mt-2"
             >
 
               <motion.div
