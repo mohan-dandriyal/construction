@@ -51,7 +51,7 @@
       },
       {
         "label": "Contact Us",
-        "href": "#contact"
+        "href": "/contact"
       }
     ],
     "services": [
@@ -99,7 +99,7 @@
         "id": "phone",
         "icon": "phone",
         "lines": [
-          "+91 98765 43210",
+          "+1  213 555 1234",
           "Mon - Sat, 9:00 AM - 6:00 PM"
         ]
       },
@@ -115,8 +115,7 @@
         "id": "location",
         "icon": "location",
         "lines": [
-          "New Delhi, India",
-          "Visit our architecture studio"
+          "2309 Mayflower Dr, Lynchburg, VA 24501, United States"
         ]
       }
     ],

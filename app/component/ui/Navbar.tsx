@@ -30,7 +30,7 @@ type NavItem = {
 const navigation: NavItem[] = siteData.navigation.links;
 
 const contactInfo = [
-    { icon: Phone, label: "Call Now", value: "+1 000000000" },
+    { icon: Phone, label: "Call Now", value: "+1 213 555 1234" },
     { icon: Mail, label: "Send Email", value: "info@xyz.com" },
     { icon: AlarmClock, label: "Working Hours", value: "Mon - Sat 8:00 - 6:30, Sunday - CLOSED" },
 ];
