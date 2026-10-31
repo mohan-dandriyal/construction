@@ -18,10 +18,6 @@ const sans = Barlow({
 
 const stats = homeData.stats;
 
-/**
- * Counts from 0 to `end` once the element scrolls into view.
- * Skips the animation if the user prefers reduced motion.
- */
 function useCounter(end: number, duration = 2000) {
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
@@ -46,7 +42,7 @@ function useCounter(end: number, duration = 2000) {
         const startTime = performance.now();
         const tick = (now: number) => {
           const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          const eased = 1 - Math.pow(1 - progress, 3);
           setCount(Math.round(eased * end));
           if (progress < 1) frame = requestAnimationFrame(tick);
         };
@@ -81,17 +77,18 @@ function StatItem({
       <motion.div
         ref={ref}
         whileHover={{ y: -5 }}
-        className={`flex min-w-0 flex-col items-center justify-center px-3 py-7 text-center sm:flex-row sm:gap-4 sm:text-left lg:justify-center lg:px-5 lg:py-8 ${index > 0 ? "lg:border-l lg:border-[#8a6f45]/50" : ""
-          } ${index % 2 === 1 ? "max-lg:border-l max-lg:border-[#8a6f45]/50" : ""}`}
+        className={`flex min-w-0 flex-col items-center justify-center px-3 py-7 text-center sm:flex-row sm:gap-4 sm:text-left lg:justify-center lg:px-5 lg:py-8 ${
+          index > 0 ? "lg:border-l lg:border-[#8a6f45]/50" : ""
+        } ${index % 2 === 1 ? "max-lg:border-l max-lg:border-[#8a6f45]/50" : ""}`}
       >
         <span
           aria-label={`${count} ${label}`}
-          className="shrink-0 bg-gradient-to-b from-[#e5c999] via-[#b99158] to-[#72572f] bg-clip-text font-[family-name:var(--font-serif)] text-[clamp(3.5rem,8vw,6.25rem)] font-medium leading-none tabular-nums text-transparent"
+          className="shrink-0 bg-gradient-to-b from-[#e5c999] via-[#b99158] to-[#72572f] bg-clip-text font-[family-name:var(--font-serif)] text-[clamp(3.25rem,8vw,6.25rem)] font-medium leading-none tabular-nums text-transparent"
         >
           {count}
         </span>
 
-        <span className="max-w-[8rem] text-sm font-medium leading-snug text-white/90  sm:text-base xl:text-lg lg:mt-8">
+        <span className="mt-2 max-w-[8rem] text-sm font-medium leading-snug text-white/90 sm:mt-0 sm:text-base lg:mt-8 xl:text-lg">
           {label}
         </span>
       </motion.div>
@@ -102,17 +99,16 @@ function StatItem({
 export default function StatsCounterSection() {
   return (
     <div>
-
-    <section
-      id="highlights"
-      className={`${serif.variable} ${sans.variable} border-y border-white/[0.04] bg-[#0a1118] px-4 py-2 font-[family-name:var(--font-sans)] sm:px-8 lg:py-3`}
-    >
-      <div className="mx-auto grid max-w-350 grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, i) => (
-          <StatItem key={stat.label} {...stat} index={i} />
-        ))}
-      </div>
-    </section>
+      <section
+        id={homeData.statsSection.id}
+        className={`${serif.variable} ${sans.variable} border-y border-white/[0.04] bg-[#0a1118] px-4 py-2 font-[family-name:var(--font-sans)] sm:px-8 lg:py-3`}
+      >
+        <div className="mx-auto grid max-w-350 grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, i) => (
+            <StatItem key={stat.label} {...stat} index={i} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

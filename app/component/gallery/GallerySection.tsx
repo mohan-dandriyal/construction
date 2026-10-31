@@ -3,7 +3,12 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
 import {
   Maximize2,
   X,
@@ -13,11 +18,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-
-import data from "@/app/data/gallery.json"
+import data from "@/app/data/gallery.json";
 
 import { Playfair_Display, Poppins } from "next/font/google";
-import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionHeiglightText,
+  SectionTitle,
+} from "../SectionHeader";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -48,23 +57,31 @@ const cardVariants: Variants = {
 };
 
 export default function GallerySection() {
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    data.categories[0] ?? "All"
+  );
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const filteredItems = data.items;
+  const filteredItems =
+    selectedCategory === "All"
+      ? data.items
+      : data.items.filter((item) => item.category === selectedCategory);
 
   const activeItem: (typeof data.items)[number] | null =
     activeModalIndex !== null ? filteredItems[activeModalIndex] ?? null : null;
 
   const handlePrev = useCallback(() => {
-    if (activeModalIndex === null) return;
+    if (activeModalIndex === null || filteredItems.length === 0) return;
     setActiveModalIndex((prev) =>
-      prev === null ? null : (prev - 1 + filteredItems.length) % filteredItems.length
+      prev === null
+        ? null
+        : (prev - 1 + filteredItems.length) % filteredItems.length
     );
   }, [activeModalIndex, filteredItems.length]);
 
   const handleNext = useCallback(() => {
-    if (activeModalIndex === null) return;
+    if (activeModalIndex === null || filteredItems.length === 0) return;
     setActiveModalIndex((prev) =>
       prev === null ? null : (prev + 1) % filteredItems.length
     );
@@ -74,7 +91,6 @@ export default function GallerySection() {
     setActiveModalIndex(null);
   }, []);
 
-  // Keyboard controls for modal
   useEffect(() => {
     if (activeModalIndex === null) return;
 
@@ -97,17 +113,43 @@ export default function GallerySection() {
           <Eyebrow text={data.section.Eyebrow} />
         </div>
 
-        <SectionTitle className="text-center mx-auto">
+        <SectionTitle className="mx-auto text-center">
           {data.section.title}
           <SectionHeiglightText text={data.section.lightTitle} />
         </SectionTitle>
-        <SectionDescription className="lg:w-6/12 sm:w-10/12 mx-auto text-center" text={data.section.dis} />
+        <SectionDescription
+          className="mx-auto text-center sm:w-10/12 lg:w-6/12"
+          text={data.section.dis}
+        />
 
+        {/* Dynamic Category Filter Tabs */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {data.categories.map((cat) => {
+            const isActive = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(cat);
+                  setActiveModalIndex(null);
+                }}
+                className={`rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 sm:text-sm ${
+                  isActive
+                    ? "border-[#d59a4c] bg-[#d59a4c] text-[#0f1720] shadow-lg shadow-[#d59a4c]/25"
+                    : "border-white/15 bg-white/[0.03] text-white/80 hover:border-[#d59a4c]/60 hover:text-white"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
 
         {/* Gallery Grid */}
         <motion.div
           layout
-          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8"
+          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
@@ -120,7 +162,8 @@ export default function GallerySection() {
                 exit="exit"
                 whileHover={reduceMotion ? undefined : { y: -6 }}
                 transition={{ duration: 0.4 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b1520] transition-colors duration-300 hover:border-[#d59a4c]/60 shadow-xl shadow-black/40"
+                onClick={() => setActiveModalIndex(index)}
+                className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b1520] shadow-xl shadow-black/40 transition-colors duration-300 hover:border-[#d59a4c]/60"
               >
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#070e17]">
@@ -136,23 +179,26 @@ export default function GallerySection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b1520] via-black/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-85" />
 
                   {/* Category Pill */}
-                  {/* <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#efb85f] backdrop-blur-md">
+                  <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#efb85f] backdrop-blur-md">
                     {item.category}
-                  </span> */}
+                  </span>
 
                   {/* Expand Button Icon */}
                   <button
                     type="button"
-                    onClick={() => setActiveModalIndex(index)}
-                    aria-label={`Enlarge ${item.title}`}
-                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/60 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-[#d59a4c] hover:text-[#0f1720] group-hover:opacity-100"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveModalIndex(index);
+                    }}
+                    aria-label={`${data.section.enlargeAriaPrefix} ${item.title}`}
+                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all duration-300 hover:bg-[#d59a4c] hover:text-[#0f1720] sm:opacity-0 sm:group-hover:opacity-100"
                   >
                     <Maximize2 size={16} />
                   </button>
                 </div>
 
                 {/* Content Block */}
-                {/* <div className="flex flex-1 flex-col justify-between p-6">
+                <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
                   <div>
                     <div className="flex items-center gap-1.5 text-xs text-[#aeb6bf]">
                       <MapPin size={13} className="text-[#d59a4c]" />
@@ -163,26 +209,11 @@ export default function GallerySection() {
                       {item.title}
                     </h3>
 
-                    <p className="mt-2 text-sm leading-relaxed text-[#aeb6bf] line-clamp-2">
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#aeb6bf]">
                       {item.description}
                     </p>
                   </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
-                    <button
-                      type="button"
-                      onClick={() => setActiveModalIndex(index)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#d59a4c] transition-colors hover:text-white"
-                    >
-                      <span>View Project</span>
-                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                    </button>
-
-                    <span className="text-xs font-mono text-white/40">
-                      #{String(item.id).padStart(2, "0")}
-                    </span>
-                  </div>
-                </div> */}
+                </div>
               </motion.article>
             ))}
           </AnimatePresence>
@@ -209,23 +240,24 @@ export default function GallerySection() {
                 exit={{ scale: 0.94, opacity: 0, y: 16 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#0b1520] shadow-2xl shadow-black"
+                className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl border border-white/15 bg-[#0b1520] shadow-2xl shadow-black"
               >
                 {/* Header Controls */}
-                <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4">
                   <div className="flex items-center gap-3">
                     <span className="rounded-full bg-[#d59a4c]/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#efb85f]">
                       {activeItem.category}
                     </span>
                     <span className="text-xs font-medium text-[#aeb6bf]">
-                      {activeModalIndex + 1} of {filteredItems.length}
+                      {activeModalIndex + 1} {data.modal.ofLabel}{" "}
+                      {filteredItems.length}
                     </span>
                   </div>
 
                   <button
                     type="button"
                     onClick={handleClose}
-                    aria-label="Close modal"
+                    aria-label={data.modal.closeAriaLabel}
                     className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-white hover:bg-white/10 hover:text-white"
                   >
                     <X size={18} />
@@ -233,7 +265,7 @@ export default function GallerySection() {
                 </div>
 
                 {/* Main Image Area */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black sm:aspect-[16/9]">
+                <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-black sm:aspect-[16/9]">
                   <Image
                     src={activeItem.image}
                     alt={activeItem.title}
@@ -249,8 +281,8 @@ export default function GallerySection() {
                       <button
                         type="button"
                         onClick={handlePrev}
-                        aria-label="Previous project"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all hover:bg-[#d59a4c] hover:text-[#0f1720]"
+                        aria-label={data.modal.prevAriaLabel}
+                        className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all hover:bg-[#d59a4c] hover:text-[#0f1720] sm:left-4 sm:h-12 sm:w-12"
                       >
                         <ChevronLeft size={22} />
                       </button>
@@ -258,8 +290,8 @@ export default function GallerySection() {
                       <button
                         type="button"
                         onClick={handleNext}
-                        aria-label="Next project"
-                        className="absolute right-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all hover:bg-[#d59a4c] hover:text-[#0f1720]"
+                        aria-label={data.modal.nextAriaLabel}
+                        className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all hover:bg-[#d59a4c] hover:text-[#0f1720] sm:right-4 sm:h-12 sm:w-12"
                       >
                         <ChevronRight size={22} />
                       </button>
@@ -268,12 +300,12 @@ export default function GallerySection() {
                 </div>
 
                 {/* Footer Caption */}
-                <div className="flex flex-col justify-between gap-4 border-t border-white/10 p-6 sm:flex-row sm:items-center">
+                <div className="flex flex-col justify-between gap-4 border-t border-white/10 p-4 sm:flex-row sm:items-center sm:p-6">
                   <div>
-                    <h4 className="font-[family-name:var(--font-serif)] text-2xl font-semibold text-white">
+                    <h4 className="font-[family-name:var(--font-serif)] text-xl font-semibold text-white sm:text-2xl">
                       {activeItem.title}
                     </h4>
-                    <p className="mt-1 text-xs text-[#aeb6bf] flex items-center gap-1.5">
+                    <p className="mt-1 flex items-center gap-1.5 text-xs text-[#aeb6bf]">
                       <MapPin size={13} className="text-[#d59a4c]" />
                       {activeItem.location}
                     </p>
@@ -283,10 +315,10 @@ export default function GallerySection() {
                   </div>
 
                   <Link
-                    href="/contact"
-                    className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#d59a4c] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0f1720] transition-colors hover:bg-[#efb85f]"
+                    href={data.modal.ctaHref}
+                    className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#d59a4c] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0f1720] transition-colors hover:bg-[#efb85f]"
                   >
-                    <span>Inquire About This Style</span>
+                    <span>{data.modal.ctaLabel}</span>
                     <ArrowRight size={14} />
                   </Link>
                 </div>

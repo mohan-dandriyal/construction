@@ -1,11 +1,34 @@
 {
   "brand": "Arcova Architecture Studio",
+  "metadata": {
+    "title": "Arcova Architecture Studio",
+    "description": "We design modern, sustainable spaces that inspire life. Discover Arcova Architecture Studio."
+  },
+  "logo": {
+    "src": "/logo.png",
+    "alt": "Arcova Architecture Studio",
+    "homeAriaLabel": "Arcova Architecture Studio home"
+  },
+  "loading": {
+    "label": "Loading",
+    "ariaLabel": "Loading",
+    "durationMs": 2000
+  },
+  "breadcrumb": {
+    "homeLabel": "Home",
+    "ariaLabel": "Breadcrumb"
+  },
   "hero": {
     "eyebrow": "Arcova Architecture Studio",
     "title": "Designing Spaces",
     "accent": "That Inspire Life",
+    "description": "Transforming ideas into timeless architectural experiences. We create innovative, functional, and elegant spaces that reflect your vision and lifestyle.",
     "image": "/banner/hero.png",
-    "button": "Explore Our Work"
+    "imageAlt": "Arcova Architecture Studio hero banner",
+    "button": "Explore Our Work",
+    "buttonHref": "/projects",
+    "openMenuAria": "Open navigation menu",
+    "closeMenuAria": "Close navigation menu"
   },
   "pageHeroes": {
     "about": {
@@ -26,7 +49,9 @@
     "gallery": {
       "title": "Our Gallery",
       "currentPage": "Gallery",
-      "image": "/banner/about-banner.png"
+      "image": "/banner/about-banner.png",
+      "metaTitle": "Project Gallery | Arcova Architecture Studio",
+      "metaDescription": "Explore our visual portfolio of architectural designs, luxury villa transformations, and premium bespoke interiors."
     },
     "team": {
       "title": "Our Teams",
@@ -55,6 +80,10 @@
     }
   },
   "navigation": {
+    "ariaLabel": "Main navigation",
+    "closeMenuAria": "Close navigation menu",
+    "toggleSubmenuPrefix": "Toggle",
+    "toggleSubmenuSuffix": "submenu",
     "links": [
       {
         "label": "Home",
@@ -87,6 +116,45 @@
       {
         "label": "Contact",
         "href": "/contact"
+      }
+    ],
+    "contactInfo": [
+      {
+        "kind": "phone",
+        "label": "Call Now",
+        "value": "+1 213 555 1234"
+      },
+      {
+        "kind": "mail",
+        "label": "Send Email",
+        "value": "info@arcova.com"
+      },
+      {
+        "kind": "clock",
+        "label": "Working Hours",
+        "value": "Mon - Sat 8:00 - 6:30, Sunday - CLOSED"
+      }
+    ],
+    "socials": [
+      {
+        "icon": "twitter",
+        "label": "X",
+        "href": "https://x.com/"
+      },
+      {
+        "icon": "facebook",
+        "label": "Facebook",
+        "href": "https://facebook.com/"
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/"
+      },
+      {
+        "icon": "instagram",
+        "label": "Instagram",
+        "href": "https://instagram.com/"
       }
     ]
   },

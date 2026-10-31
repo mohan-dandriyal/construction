@@ -1,11 +1,58 @@
 {
+  "section": {
+    "id": "team",
+    "eyebrow": "Our Team",
+    "title": "Meet Our",
+    "accent": "Experts",
+    "description": "Our team of experienced architects, designers and project professionals work together to turn ideas into functional, aesthetic and sustainable spaces.",
+    "paginationAriaLabel": "Team pagination",
+    "prevPageLabel": "Previous page",
+    "nextPageLabel": "Next page",
+    "pagePrefix": "Page"
+  },
   "sectionDescription": "Our team of experienced architects, designers and project professionals work together to turn ideas into functional, aesthetic and sustainable spaces.",
   "members": [
-    { "slug": "rohit-sharma", "name": "Rohit Sharma", "role": "Founder & Director", "bio": "Visionary leader with 15+ years of experience in architecture and design.", "image": "/teams/img-3.png" },
-    { "slug": "priya-mehta", "name": "Priya Mehta", "role": "Lead Architect", "bio": "Creative architect skilled in modern and sustainable design solutions.", "image": "/teams/img-1.png" },
-    { "slug": "amit-verma", "name": "Amit Verma", "role": "Project Director", "bio": "Expert in project management and on-time delivery of complex builds.", "image": "/teams/img-6.png" },
-    { "slug": "neha-kapoor", "name": "Neha Kapoor", "role": "Site Supervisor", "bio": "Ensures quality, safety and smooth execution at every project site.", "image": "/teams/img-2.png" },
-    { "slug": "vikas-singh", "name": "Vikas Singh", "role": "Construction Manager", "bio": "Manages construction operations with efficiency and precision.", "image": "/teams/img-5.png" },
-    { "slug": "kavya-iyer", "name": "Kavya Iyer", "role": "Interior Designer", "bio": "Designs elegant and functional interiors for modern spaces.", "image": "/teams/img-4.png" }
+    {
+      "slug": "rohit-sharma",
+      "name": "Rohit Sharma",
+      "role": "Founder & Director",
+      "bio": "Visionary leader with 15+ years of experience in architecture and design.",
+      "image": "/teams/img-3.png"
+    },
+    {
+      "slug": "priya-mehta",
+      "name": "Priya Mehta",
+      "role": "Lead Architect",
+      "bio": "Creative architect skilled in modern and sustainable design solutions.",
+      "image": "/teams/img-1.png"
+    },
+    {
+      "slug": "amit-verma",
+      "name": "Amit Verma",
+      "role": "Project Director",
+      "bio": "Expert in project management and on-time delivery of complex builds.",
+      "image": "/teams/img-6.png"
+    },
+    {
+      "slug": "neha-kapoor",
+      "name": "Neha Kapoor",
+      "role": "Site Supervisor",
+      "bio": "Ensures quality, safety and smooth execution at every project site.",
+      "image": "/teams/img-2.png"
+    },
+    {
+      "slug": "vikas-singh",
+      "name": "Vikas Singh",
+      "role": "Construction Manager",
+      "bio": "Manages construction operations with efficiency and precision.",
+      "image": "/teams/img-5.png"
+    },
+    {
+      "slug": "kavya-iyer",
+      "name": "Kavya Iyer",
+      "role": "Interior Designer",
+      "bio": "Designs elegant and functional interiors for modern spaces.",
+      "image": "/teams/img-4.png"
+    }
   ]
 }

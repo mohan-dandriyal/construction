@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Playfair_Display, Inter } from "next/font/google";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import projectsData from "@/app/data/projects.json";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -11,20 +12,18 @@ const playfair = Playfair_Display({
 });
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-/* ---------- Default content (replace with your own data / props) ---------- */
-const defaultOverview = {
-  eyebrow: "Project Overview",
-  titleStart: "Elegant Design with",
-  titleAccent: "Modern Comfort",
-  paragraphs: [
-    "This modern luxury villa is designed to offer a perfect balance of aesthetics, functionality, and comfort. The spacious layout, modern architecture, and premium interiors create an inviting atmosphere for contemporary living. Every detail, from lighting to material selection, is thoughtfully planned to provide a luxurious and comfortable lifestyle.",
-    "The design emphasizes open spaces, natural light, and seamless indoor–outdoor connectivity, making it an ideal home for modern families who value both style and practicality.",
-  ],
+export type ProjectOverviewData = {
+  eyebrow: string;
+  titleStart: string;
+  titleAccent: string;
+  paragraphs: string[];
   image: {
-    src: "/proj-1.png",
-    alt: "Modern living room with sectional sofa, wall-mounted TV and warm cove lighting",
-  },
+    src: string;
+    alt: string;
+  };
 };
+
+const defaultOverview: ProjectOverviewData = projectsData.projects[0].overview;
 
 const stagger: Variants = {
   hidden: {},
@@ -35,13 +34,17 @@ const rise: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function ProjectOverview({ overview = defaultOverview }) {
+export default function ProjectOverview({
+  overview = defaultOverview,
+}: {
+  overview?: ProjectOverviewData;
+}) {
   const { eyebrow, titleStart, titleAccent, paragraphs, image } = overview;
   const reduce = useReducedMotion();
 
   return (
     <section
-      className={`${inter.className} border-t border-white/10 overflow-hidden bg-[#050e17] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-10 lg:py-20`}
+      className={`${inter.className} overflow-hidden border-t border-white/10 bg-[#050e17] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-10 lg:py-20`}
     >
       <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:gap-12 xl:gap-16">
         {/* ---------- Image ---------- */}
@@ -88,7 +91,7 @@ export default function ProjectOverview({ overview = defaultOverview }) {
           {/* heading */}
           <motion.h2
             variants={rise}
-            className={`${playfair.className} mt-4 font-semibold leading-tight text-3xl md:text-4xl`}
+            className={`${playfair.className} mt-4 text-3xl font-semibold leading-tight md:text-4xl`}
           >
             {titleStart} <span className="text-[#f0b445]">{titleAccent}</span>
           </motion.h2>

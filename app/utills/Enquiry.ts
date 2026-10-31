@@ -1,11 +1,39 @@
-import { Phone, Mail, MapPin, Ruler, ClipboardCheck, ShieldCheck, Box, type LucideIcon } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Ruler,
+  ClipboardCheck,
+  ShieldCheck,
+  Box,
+  type LucideIcon,
+} from "lucide-react";
 import data from "@/app/data/contact.json";
+
+export const contactSection = data.section;
 export const intro = data.intro;
+export const formContent = data.form;
+export const mapContent = data.map;
+export const contactSocials = data.socials;
+
 export type ContactLine = { icon: LucideIcon; main: string; sub: string[] };
 const contactIcons = { phone: Phone, mail: Mail, location: MapPin } as const;
-export const contactLines: ContactLine[] = data.contactLines.map((line) => ({ ...line, icon: contactIcons[line.kind as keyof typeof contactIcons] }));
+export const contactLines: ContactLine[] = data.contactLines.map((line) => ({
+  ...line,
+  icon: contactIcons[line.kind as keyof typeof contactIcons],
+}));
+
 export const projectTypes = data.projectTypes;
 export const timelines = data.timelines;
+
 export type Feature = { icon: LucideIcon; title: string; text: string };
-const featureIcons = { ruler: Ruler, clipboard: ClipboardCheck, shield: ShieldCheck, box: Box } as const;
-export const features: Feature[] = data.features.map((feature) => ({ ...feature, icon: featureIcons[feature.kind as keyof typeof featureIcons] }));
+const featureIcons = {
+  ruler: Ruler,
+  clipboard: ClipboardCheck,
+  shield: ShieldCheck,
+  box: Box,
+} as const;
+export const features: Feature[] = data.features.map((feature) => ({
+  ...feature,
+  icon: featureIcons[feature.kind as keyof typeof featureIcons],
+}));

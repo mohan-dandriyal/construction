@@ -1,8 +1,17 @@
 {
   "section": {
     "Eyebrow": "Our Projects",
-    "title": " Architecture Solutions",
-    "accent": "for Every Space"
+    "title": "Architecture Solutions",
+    "accent": "for Every Space",
+    "buttonLabel": "Discover More",
+    "paginationAriaLabel": "Projects pagination",
+    "prevPageLabel": "Previous page",
+    "nextPageLabel": "Next page",
+    "pagePrefix": "Page"
+  },
+  "showcase": {
+    "nextImageAria": "Next image",
+    "showImageAriaPrefix": "Show image"
   },
   "projects": [
     {
@@ -10,21 +19,189 @@
       "image": "/proj-1.png",
       "category": "Residential",
       "title": "Modern Luxury Villa",
-      "description": "A beautifully designed luxury villa that blends modern architecture with open spaces, natural light and elegant finishes to create a comfortable and stylish living experience."
+      "titleTop": "Modern",
+      "titleAccent": "Luxury Villa",
+      "description": "A beautifully designed luxury villa that blends modern architecture with open spaces, natural light and elegant finishes to create a comfortable and stylish living experience.",
+      "details": [
+        { "icon": "MapPin", "label": "Location", "value": "Noida, Uttar Pradesh" },
+        { "icon": "House", "label": "Project Type", "value": "Residential Villa" },
+        { "icon": "Ruler", "label": "Built-up Area", "value": "5,500 Sq. Ft." },
+        { "icon": "CalendarDays", "label": "Year", "value": "2024" }
+      ],
+      "images": [
+        { "src": "/proj-1.png", "alt": "Villa exterior with pool at dusk" },
+        { "src": "/service-1.png", "alt": "Open living room with sofa seating" },
+        { "src": "/ser-3.png", "alt": "Dining area with warm pendant lighting" },
+        { "src": "/ser-5.jpg", "alt": "Master bedroom with cove lighting" }
+      ],
+      "overview": {
+        "eyebrow": "Project Overview",
+        "titleStart": "Elegant Design with",
+        "titleAccent": "Modern Comfort",
+        "paragraphs": [
+          "This modern luxury villa is designed to offer a perfect balance of aesthetics, functionality, and comfort. The spacious layout, modern architecture, and premium interiors create an inviting atmosphere for contemporary living. Every detail, from lighting to material selection, is thoughtfully planned to provide a luxurious and comfortable lifestyle.",
+          "The design emphasizes open spaces, natural light, and seamless indoor–outdoor connectivity, making it an ideal home for modern families who value both style and practicality."
+        ],
+        "image": {
+          "src": "/proj-1.png",
+          "alt": "Modern living room with sectional sofa, wall-mounted TV and warm cove lighting"
+        }
+      },
+      "keyFeatures": {
+        "specsEyebrow": "Project Highlights",
+        "highlightsTitle": "Highlights of",
+        "highlightsAccent": "This Project",
+        "highlights": [
+          { "icon": "House", "title": "Modern Architecture", "text": "Contemporary design with elegant and clean lines." },
+          { "icon": "Sofa", "title": "Spacious Interiors", "text": "Open layouts with functional and stylish spaces." },
+          { "icon": "Sun", "title": "Natural Lighting", "text": "Large windows for maximum natural light and ventilation." },
+          { "icon": "TreePalm", "title": "Outdoor Living", "text": "Beautiful landscaped outdoor spaces and private pool." }
+        ]
+      },
+      "specifications": {
+        "specsEyebrow": "Project Specifications",
+        "specsTitle": "Project",
+        "specsAccent": "Details",
+        "specs": [
+          { "label": "Project Name", "value": "Modern Luxury Villa" },
+          { "label": "Location", "value": "Noida, Uttar Pradesh" },
+          { "label": "Project Type", "value": "Residential Villa" },
+          { "label": "Built-up Area", "value": "5,500 Sq. Ft." },
+          { "label": "Year of Completion", "value": "2024" },
+          { "label": "Style", "value": "Modern Contemporary" },
+          { "label": "Key Highlights", "value": "Spacious Layout, Premium Interiors, Private Pool, Landscaped Garden" }
+        ],
+        "image": {
+          "src": "/why-choose-us.png",
+          "alt": "Outdoor lounge beside a private pool at dusk"
+        }
+      }
     },
     {
       "id": "corporate-office-building",
-      "image": "/proj-1.png",
-      "category": "COMMERCIAL",
+      "image": "/ser-6.webp",
+      "category": "Commercial",
       "title": "Corporate Office Building",
-      "description": "A modern office building designed for productivity, collaboration and growth, featuring contemporary architecture with sustainable and functional spaces."
+      "titleTop": "Corporate",
+      "titleAccent": "Office Building",
+      "description": "A modern office building designed for productivity, collaboration and growth, featuring contemporary architecture with sustainable and functional spaces.",
+      "details": [
+        { "icon": "MapPin", "label": "Location", "value": "Gurugram, Haryana" },
+        { "icon": "House", "label": "Project Type", "value": "Commercial Hub" },
+        { "icon": "Ruler", "label": "Built-up Area", "value": "24,000 Sq. Ft." },
+        { "icon": "CalendarDays", "label": "Year", "value": "2024" }
+      ],
+      "images": [
+        { "src": "/ser-6.webp", "alt": "Corporate office building glass facade" },
+        { "src": "/ser-2.jpg", "alt": "Executive lounge and reception area" },
+        { "src": "/service-1.png", "alt": "Collaborative workspace interior" },
+        { "src": "/proj-1.png", "alt": "Evening architectural lighting of the complex" }
+      ],
+      "overview": {
+        "eyebrow": "Project Overview",
+        "titleStart": "Workspace Built for",
+        "titleAccent": "Innovation & Scale",
+        "paragraphs": [
+          "This flagship corporate office building combines high-performance glazing, acoustic zoning, and flexible floor plates to support dynamic teams and client hospitality.",
+          "With energy-efficient climate control, biophilic terrace breakout zones, and an iconic double-height lobby, the building sets a benchmark for sustainable commercial architecture."
+        ],
+        "image": {
+          "src": "/ser-6.webp",
+          "alt": "Corporate office architectural elevation"
+        }
+      },
+      "keyFeatures": {
+        "specsEyebrow": "Project Highlights",
+        "highlightsTitle": "Highlights of",
+        "highlightsAccent": "This Project",
+        "highlights": [
+          { "icon": "House", "title": "Iconic Glass Facade", "text": "Double-glazed solar-control curtain wall for thermal efficiency." },
+          { "icon": "Sofa", "title": "Collaborative Zones", "text": "Modular workspaces, acoustic pods, and executive boardrooms." },
+          { "icon": "Sun", "title": "Daylight Harvesting", "text": "Automated blinds and atrium light wells reduce energy usage." },
+          { "icon": "TreePalm", "title": "Sky Terraces", "text": "Landscaped breakout decks on multiple levels for employee wellness." }
+        ]
+      },
+      "specifications": {
+        "specsEyebrow": "Project Specifications",
+        "specsTitle": "Project",
+        "specsAccent": "Details",
+        "specs": [
+          { "label": "Project Name", "value": "Corporate Office Building" },
+          { "label": "Location", "value": "Gurugram, Haryana" },
+          { "label": "Project Type", "value": "Commercial Architecture" },
+          { "label": "Built-up Area", "value": "24,000 Sq. Ft." },
+          { "label": "Year of Completion", "value": "2024" },
+          { "label": "Style", "value": "Sustainable Contemporary" },
+          { "label": "Key Highlights", "value": "Double-Height Atrium, Smart BMS, Sky Terraces, LEED-Ready Systems" }
+        ],
+        "image": {
+          "src": "/ser-2.jpg",
+          "alt": "Modern corporate interior lounge"
+        }
+      }
     },
     {
       "id": "contemporary-home-interior",
-      "image": "/proj-1.png",
-      "category": "INTERIOR",
+      "image": "/service-1.png",
+      "category": "Interior",
       "title": "Contemporary Home Interior",
-      "description": "Elegant and functional interiors designed to create a warm and inviting atmosphere, with modern finishes, smart space planning and premium materials."
+      "titleTop": "Contemporary",
+      "titleAccent": "Home Interior",
+      "description": "Elegant and functional interiors designed to create a warm and inviting atmosphere, with modern finishes, smart space planning and premium materials.",
+      "details": [
+        { "icon": "MapPin", "label": "Location", "value": "South Delhi" },
+        { "icon": "House", "label": "Project Type", "value": "Bespoke Residence Interior" },
+        { "icon": "Ruler", "label": "Built-up Area", "value": "3,800 Sq. Ft." },
+        { "icon": "CalendarDays", "label": "Year", "value": "2024" }
+      ],
+      "images": [
+        { "src": "/service-1.png", "alt": "Contemporary living room with warm lighting" },
+        { "src": "/ser-4.webp", "alt": "Custom furniture and paneling details" },
+        { "src": "/ser-3.png", "alt": "Dining pavilion and open kitchen layout" },
+        { "src": "/ser-5.jpg", "alt": "Refined master bedroom suite" }
+      ],
+      "overview": {
+        "eyebrow": "Project Overview",
+        "titleStart": "Refined Interiors with",
+        "titleAccent": "Timeless Warmth",
+        "paragraphs": [
+          "Crafted for a discerning family in South Delhi, this residence blends bespoke millwork, natural stone surfaces, and layered architectural lighting into a calm, cohesive sanctuary.",
+          "Every room transitions effortlessly into the next, utilizing concealed storage and custom-designed furniture to maximize both visual openness and everyday comfort."
+        ],
+        "image": {
+          "src": "/service-1.png",
+          "alt": "Contemporary home living room interior"
+        }
+      },
+      "keyFeatures": {
+        "specsEyebrow": "Project Highlights",
+        "highlightsTitle": "Highlights of",
+        "highlightsAccent": "This Project",
+        "highlights": [
+          { "icon": "House", "title": "Bespoke Millwork", "text": "Fluted walnut wall paneling and seamless concealed doors." },
+          { "icon": "Sofa", "title": "Curated Furnishings", "text": "Custom-upholstered seating and artisan stone tables." },
+          { "icon": "Sun", "title": "Layered Lighting", "text": "Dimmable architectural cove lighting and warm accent fixtures." },
+          { "icon": "TreePalm", "title": "Balcony Sanctuary", "text": "Indoor-outdoor plant styling and private sit-out deck." }
+        ]
+      },
+      "specifications": {
+        "specsEyebrow": "Project Specifications",
+        "specsTitle": "Project",
+        "specsAccent": "Details",
+        "specs": [
+          { "label": "Project Name", "value": "Contemporary Home Interior" },
+          { "label": "Location", "value": "South Delhi" },
+          { "label": "Project Type", "value": "Luxury Interior Design" },
+          { "label": "Built-up Area", "value": "3,800 Sq. Ft." },
+          { "label": "Year of Completion", "value": "2024" },
+          { "label": "Style", "value": "Warm Minimalist Contemporary" },
+          { "label": "Key Highlights", "value": "Custom Joinery, Italian Marble Flooring, Smart Lighting, Acoustic Suite" }
+        ],
+        "image": {
+          "src": "/ser-4.webp",
+          "alt": "Bespoke interior joinery and furniture"
+        }
+      }
     }
   ]
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, type LucideIcon } from "lucide-react";
+import serviceData from "@/app/data/services.json";
 
 function ServiceCard({
   service,
@@ -17,9 +18,7 @@ function ServiceCard({
     icon: LucideIcon;
     href: string;
   };
-  /** position of this card within the cards currently on screen (0-based) */
   index: number;
-  /** how many cards are currently on screen */
   total?: number;
 }) {
   const Icon = service.icon;
@@ -27,12 +26,8 @@ function ServiceCard({
 
   const isLast = index === total - 1;
 
-  /* ---------- Dividers ----------
-     Vertical lines sit between columns and are inset top/bottom.
-     Horizontal lines run under every row except the last one.
-     1 column (mobile) / 2 columns (sm) / 3 columns (lg) each get their own rule. */
-  const showVSm = index % 2 === 0 && !isLast; // 2 cols: line after the left card
-  const showVLg = index % 3 !== 2 && !isLast; // 3 cols: line after cols 1 and 2
+  const showVSm = index % 2 === 0 && !isLast;
+  const showVLg = index % 3 !== 2 && !isLast;
 
   const lastRowSm = Math.floor(index / 2) === Math.floor((total - 1) / 2);
   const lastRowLg = Math.floor(index / 3) === Math.floor((total - 1) / 3);
@@ -57,7 +52,7 @@ function ServiceCard({
         aria-hidden="true"
         className={`pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-[#c9964a]/50 ${hBase} ${hSm} ${hLg}`}
       />
-      {/* vertical divider (right), inset so it doesn't touch the horizontal line */}
+      {/* vertical divider (right) */}
       <span
         aria-hidden="true"
         className={`pointer-events-none absolute bottom-3 right-0 top-3 hidden w-px bg-[#c9964a]/50 ${vSm} ${vLg}`}
@@ -95,7 +90,7 @@ function ServiceCard({
           href={service.href}
           className="group mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#d9a55b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d9a55b]"
         >
-          Read More
+          {serviceData.section.readMoreLabel}
           <ArrowRight
             size={16}
             className="transition-transform group-hover:translate-x-1"

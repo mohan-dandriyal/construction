@@ -2,16 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, House } from "lucide-react";
 import Reveal from "./Reveal";
-import { services } from "@/app/utills/services";
+import { serviceDetailText, services } from "@/app/utills/services";
 
 export default function ServiceSidebar({ activeSlug }: { activeSlug: string }) {
+  const { sidebar } = serviceDetailText;
+
   return (
     <aside className="order-2 min-w-0 space-y-8 lg:order-1 lg:sticky lg:top-24 lg:self-start">
       {/* ---------- Service list ---------- */}
       <Reveal x={-40} y={0}>
-        <nav aria-label="Our services" className="overflow-hidden rounded-lg bg-[#0e1a25]">
+        <nav
+          aria-label={sidebar.navAriaLabel}
+          className="overflow-hidden rounded-lg bg-[#0e1a25]"
+        >
           <h2 className="bg-[#d9a55b] px-7 py-5 text-lg font-semibold text-[#14110c]">
-            Discover Our Services
+            {sidebar.heading}
           </h2>
 
           <ul className="pb-2">
@@ -51,7 +56,7 @@ export default function ServiceSidebar({ activeSlug }: { activeSlug: string }) {
         <div className="relative overflow-hidden rounded-lg border border-[#d9a55b]/60 bg-[#0b1520]">
           <div className="absolute inset-x-0 top-0 h-[78%]">
             <Image
-              src="/service-1.png"
+              src={sidebar.ctaImage}
               alt=""
               fill
               sizes="340px"
@@ -60,25 +65,25 @@ export default function ServiceSidebar({ activeSlug }: { activeSlug: string }) {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b1520] via-[#0b1520]/75 to-transparent" />
           </div>
 
-          <div className="relative flex min-h-[520px] flex-col justify-end p-7">
-            <span className="absolute left-7 top-24 grid h-16 w-16 place-items-center rounded-xl bg-black/50 text-[#e3ab5a] backdrop-blur-sm">
+          <div className="relative flex min-h-[420px] flex-col justify-end p-7 sm:min-h-[520px]">
+            <span className="absolute left-7 top-16 grid h-16 w-16 place-items-center rounded-xl bg-black/50 text-[#e3ab5a] backdrop-blur-sm sm:top-24">
               <House size={34} strokeWidth={1.75} aria-hidden="true" />
             </span>
 
             <h3 className="text-xl font-semibold leading-snug text-white">
-              Let’s Create Your
+              {sidebar.ctaTitleLine1}
               <br />
-              Dream Space Together
+              {sidebar.ctaTitleLine2}
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-[#cfd5db]">
-              Get expert interior design solutions with our professional team.
+              {sidebar.ctaDescription}
             </p>
 
             <Link
-              href="/contact"
+              href={sidebar.ctaHref}
               className="group mt-6 inline-flex w-fit items-center gap-3 rounded-md bg-[#e3ab5a] py-2 pl-5 pr-2 text-sm font-semibold text-[#14110c] transition-colors duration-300 hover:bg-[#f0b96a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e3ab5a]"
             >
-              Contact Now
+              {sidebar.ctaButton}
               <span className="grid h-8 w-8 place-items-center rounded-full bg-[#c98f3f]/70 transition-transform duration-300 group-hover:translate-x-1">
                 <ArrowRight size={16} aria-hidden="true" />
               </span>

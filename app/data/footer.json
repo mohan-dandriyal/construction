@@ -1,4 +1,3 @@
-
 {
   "footer": {
     "id": "contact",
@@ -56,20 +55,20 @@
     ],
     "services": [
       {
-        "title": "Architectural Design",
-        "href": "/services"
+        "title": "Home Interior Design",
+        "href": "/services/home-interior-design"
       },
       {
-        "title": "Interior Design",
-        "href": "/services"
+        "title": "Home Exterior Design",
+        "href": "/services/home-exterior-design"
       },
       {
-        "title": "Residential Planning",
-        "href": "/services"
+        "title": "2D/3D Design Layout",
+        "href": "/services/2d-3d-design-layout"
       },
       {
-        "title": "Commercial Architecture",
-        "href": "/services"
+        "title": "Custom Design Plan",
+        "href": "/services/custom-design-plan"
       }
     ],
     "socials": [
@@ -99,7 +98,7 @@
         "id": "phone",
         "icon": "phone",
         "lines": [
-          "+1  213 555 1234",
+          "+1 213 555 1234",
           "Mon - Sat, 9:00 AM - 6:00 PM"
         ]
       },

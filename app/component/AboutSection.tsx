@@ -1,28 +1,17 @@
-
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  motion,
-  animate,
-  useInView,
-  useReducedMotion,
-  type MotionProps,
-} from "framer-motion";
-
-import {
-  Lightbulb,
-  Users,
-  Leaf,
-  Award,
-  ArrowRight,
-  Plus,
-} from "lucide-react";
+import { motion, useReducedMotion, type MotionProps } from "framer-motion";
+import { Lightbulb, Users, Leaf, Award, ArrowRight } from "lucide-react";
 
 import { LinearBgButton } from "./ui/ThemeButtons";
 import homeData from "@/app/data/home.json";
-import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "./SectionHeader";
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionHeiglightText,
+  SectionTitle,
+} from "./SectionHeader";
 
 const GOLD = "#c8963e";
 
@@ -33,13 +22,8 @@ const features = homeData.about.features.map((label, index) => ({
   label,
 }));
 
-const tagline = homeData.about.tagline;
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/**
- * Reusable scroll reveal animation.
- */
 function reveal(
   reduce: boolean | null,
   from: { x?: number; y?: number; scale?: number } = {},
@@ -57,7 +41,6 @@ function reveal(
   };
 }
 
-
 export default function AboutSection({
   isShowButton = false,
 }: {
@@ -67,7 +50,7 @@ export default function AboutSection({
 
   return (
     <section
-      id="about"
+      id={homeData.about.id}
       className="relative isolate overflow-hidden bg-[#0b1218] px-4 py-16 sm:px-8 lg:px-[4%] lg:py-24"
     >
       {/* Ambient background accents */}
@@ -100,13 +83,13 @@ export default function AboutSection({
         {/* Image collage */}
         <motion.div
           {...reveal(reduce, { x: -50, y: 10 })}
-          className="relative mx-auto h-[460px] w-full max-w-[620px] sm:h-[560px] lg:h-[640px] lg:max-w-none"
+          className="relative mx-auto h-[380px] w-full max-w-[620px] sm:h-[520px] lg:h-[640px] lg:max-w-none"
         >
           {/* Main image */}
           <motion.div
             whileHover={reduce ? undefined : { scale: 1.015 }}
             transition={{ duration: 0.6, ease }}
-            className="absolute left-0 top-0 h-[85%] w-[72%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-2xl"
+            className="absolute left-0 top-0 h-[85%] w-[74%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-2xl"
           >
             <Image
               src={homeData.about.image[0].src}
@@ -114,13 +97,10 @@ export default function AboutSection({
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-center "
+              className="object-cover object-center"
             />
 
-            {/* Image overlay */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b1218]/35 via-transparent to-transparent" />
-
-
           </motion.div>
 
           {/* Secondary image */}
@@ -135,7 +115,7 @@ export default function AboutSection({
                 ease,
               }}
               whileHover={reduce ? undefined : { scale: 1.025 }}
-              className="absolute right-2 top-[14%] z-10 h-[60%] w-[48%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
+              className="absolute right-0 sm:right-2 top-[14%] z-10 h-[60%] w-[50%] overflow-hidden rounded-2xl border-2 border-white/70 bg-[#0d141b] shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
             >
               <Image
                 src={homeData.about.image[1].src}
@@ -147,25 +127,21 @@ export default function AboutSection({
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
             </motion.div>
           )}
-
-
         </motion.div>
 
         {/* Text content */}
         <div className="relative lg:max-w-[640px]">
-          {/* Eyebrow */}
-          <Eyebrow text={homeData.about.eyebrow}
-            left={false} />
+          <Eyebrow text={homeData.about.eyebrow} left={false} />
 
           <SectionTitle>
             {homeData.about.title} <br />
             <SectionHeiglightText text={homeData.about.accent} className="" />
           </SectionTitle>
 
-
-          {/* Description */}
-          <SectionDescription text={homeData.about.description} className="sm:w-10/12" />
-
+          <SectionDescription
+            text={homeData.about.description}
+            className="sm:w-10/12"
+          />
 
           {/* Features */}
           <motion.div
@@ -181,15 +157,13 @@ export default function AboutSection({
                 },
               },
             }}
-            className="mt-10 grid  grid-cols-1 gap-y-5 sm:grid-cols-2"
+            className="mt-10 grid grid-cols-1 gap-y-5 sm:grid-cols-2"
           >
             {features.map(({ Icon, label }, index) => (
               <motion.div
                 key={`${label}-${index}`}
                 variants={{
-                  hidden: reduce
-                    ? { opacity: 1 }
-                    : { opacity: 0, y: 18 },
+                  hidden: reduce ? { opacity: 1 } : { opacity: 0, y: 18 },
                   visible: {
                     opacity: 1,
                     y: 0,
@@ -206,12 +180,10 @@ export default function AboutSection({
                 >
                   <motion.span
                     whileHover={
-                      reduce
-                        ? undefined
-                        : { rotate: 8, scale: 1.08 }
+                      reduce ? undefined : { rotate: 8, scale: 1.08 }
                     }
                     transition={{ duration: 0.25 }}
-                    className="grid h-[50px] w-[50px] bg-[#d59824] text-white shrink-0 place-items-center rounded-full border border-[#d59824] bg-gold/[0.08] text-gold transition-colors duration-300 group-hover:bg-gold/15 group-hover:border-gold"
+                    className="grid h-[50px] w-[50px] shrink-0 place-items-center rounded-full border border-[#d59824] bg-[#d59824] text-white transition-colors duration-300"
                   >
                     <Icon size={22} strokeWidth={1.5} />
                   </motion.span>
@@ -224,14 +196,12 @@ export default function AboutSection({
             ))}
           </motion.div>
 
-
           {/* CTA */}
           {isShowButton && (
             <motion.div
               {...reveal(reduce, { y: 22 }, 0.6)}
               className="mt-2"
             >
-
               <motion.div
                 whileHover={reduce ? undefined : { scale: 1.035 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
@@ -242,9 +212,7 @@ export default function AboutSection({
                     <span>{homeData.about.button.label}</span>
 
                     <motion.span
-                      whileHover={
-                        reduce ? undefined : { rotate: -45 }
-                      }
+                      whileHover={reduce ? undefined : { rotate: -45 }}
                       transition={{ duration: 0.25 }}
                       className="grid h-9 w-9 place-items-center rounded-full border border-white/60"
                     >

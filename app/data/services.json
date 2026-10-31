@@ -1,9 +1,33 @@
 {
   "section": {
+    "id": "services",
     "eyebrow": "Our Services",
     "title": "Designing Spaces",
     "accent": "That Inspire Life",
-    "description": "From concept to completion, we offer a comprehensive range of architectural services tailored to your vision. Our expert team creates functional, aesthetic, and sustainable spaces for modern living."
+    "homeTitle": "Architecture Solutions",
+    "homeAccent": "Tailored to Your Vision",
+    "description": "From concept to completion, we offer a comprehensive range of architectural services tailored to your vision. Our expert team creates functional, aesthetic, and sustainable spaces for modern living.",
+    "readMoreLabel": "Read More",
+    "paginationAriaLabel": "Services pagination",
+    "prevPageLabel": "Previous page",
+    "nextPageLabel": "Next page",
+    "pagePrefix": "Page"
+  },
+  "detail": {
+    "whyTitle": "Why Choose Our",
+    "whyAccentSuffix": "Services",
+    "processTitlePrefix": "Our",
+    "processAccentSuffix": "Process",
+    "sidebar": {
+      "navAriaLabel": "Our services",
+      "heading": "Discover Our Services",
+      "ctaImage": "/service-1.png",
+      "ctaTitleLine1": "Let’s Create Your",
+      "ctaTitleLine2": "Dream Space Together",
+      "ctaDescription": "Get expert interior design solutions with our professional team.",
+      "ctaButton": "Contact Now",
+      "ctaHref": "/contact"
+    }
   },
   "items": [
     {
@@ -13,6 +37,9 @@
       "short": "Interior Design",
       "description": "Stylish and functional interiors that reflect your personality and enhance everyday living.",
       "image": "/service-1.png",
+      "heroImage": "/ser-2.jpg",
+      "wideImage": "/service-1.png",
+      "processImage": "/ser-3.png",
       "href": "/services/home-interior-design",
       "paragraphs": [
         "A well-designed home interior enhances comfort, functionality, and aesthetics, creating a space that truly feels like home. Our home interior design services focus on blending your lifestyle, personality, and preferences with modern design trends to create beautiful and practical living spaces.",
@@ -37,6 +64,9 @@
       "short": "Exterior Design",
       "description": "Elegant and durable exterior designs that create a lasting first impression with modern aesthetics.",
       "image": "/ser-6.webp",
+      "heroImage": "/ser-6.webp",
+      "wideImage": "/proj-1.png",
+      "processImage": "/why-choose-us.png",
       "href": "/services/home-exterior-design",
       "paragraphs": [
         "Your home's exterior makes the first impression. We design facades, entrances and outdoor spaces that combine modern aesthetics with durable, weather-ready materials."
@@ -60,6 +90,9 @@
       "short": "Layout Design",
       "description": "Detailed 2D and 3D design layouts to help you visualize your dream space before construction.",
       "image": "/ser-3.png",
+      "heroImage": "/ser-3.png",
+      "wideImage": "/ser-6.webp",
+      "processImage": "/proj-1.png",
       "href": "/services/2d-3d-design-layout",
       "paragraphs": [
         "See your space before it is built. Our detailed 2D plans and realistic 3D visualizations help you understand layouts, proportions and finishes before construction begins."
@@ -83,6 +116,9 @@
       "short": "Furniture Design",
       "description": "Custom furniture designs that blend style, comfort, and functionality for modern spaces.",
       "image": "/ser-4.webp",
+      "heroImage": "/ser-4.webp",
+      "wideImage": "/service-1.png",
+      "processImage": "/ser-5.jpg",
       "href": "/services/furnitures-design",
       "paragraphs": [
         "Custom furniture that fits your space, your habits and your taste. We design wardrobes, TV units, beds, tables and storage that blend comfort, style and function."
@@ -106,6 +142,9 @@
       "short": "Modern Interior",
       "description": "Contemporary interior solutions with innovative design and space optimization for modern homes.",
       "image": "/ser-5.jpg",
+      "heroImage": "/ser-5.jpg",
+      "wideImage": "/ser-2.jpg",
+      "processImage": "/service-1.png",
       "href": "/services/modern-home-interior",
       "paragraphs": [
         "Modern home interiors prioritize clean lines, warm minimalist aesthetics, and open-plan flow to create calm, elegant living environments."
@@ -129,6 +168,9 @@
       "short": "Design Planning",
       "description": "Personalized design plans tailored to your needs, lifestyle, and budget.",
       "image": "/proj-1.png",
+      "heroImage": "/proj-1.png",
+      "wideImage": "/ser-3.png",
+      "processImage": "/ser-6.webp",
       "href": "/services/custom-design-plan",
       "paragraphs": [
         "No two homes or families are alike. Our custom design plans are built around your needs, lifestyle and budget, so every decision has a clear reason behind it."

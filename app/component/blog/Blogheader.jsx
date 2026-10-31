@@ -19,18 +19,22 @@ export default function BlogHeader({
       </Reveal>
 
       <Reveal delay={0.1}>
-        <h1 className="mt-5 font-[family-name:var(--font-serif)] text-4xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-4xl">
+        <h1 className="mt-5 font-[family-name:var(--font-serif)] text-3xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-4xl">
           {title}
           <span className="block text-[#e0a85c]">{accent}</span>
         </h1>
       </Reveal>
 
       <Reveal delay={0.2}>
-        <p className="mt-6 max-w-4xl text-lg leading-8 text-[#d5dae0] sm:text-xl">{lead}</p>
+        <p className="mt-6 max-w-4xl text-lg leading-8 text-[#d5dae0] sm:text-xl">
+          {lead}
+        </p>
       </Reveal>
 
       <Reveal delay={0.3}>
-        <p className="mt-5 max-w-5xl text-base leading-8 text-[#b9c0c8]">{intro}</p>
+        <p className="mt-5 max-w-5xl text-base leading-8 text-[#b9c0c8]">
+          {intro}
+        </p>
       </Reveal>
     </header>
   );

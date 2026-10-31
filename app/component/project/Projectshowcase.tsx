@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -19,8 +18,8 @@ import {
   CalendarDays,
   ChevronRight,
 } from "lucide-react";
+import projectsData from "@/app/data/projects.json";
 
-// Fonts
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
@@ -32,79 +31,35 @@ const inter = Inter({
   display: "swap",
 });
 
-// Types
-type ProjectDetail = {
-  icon: LucideIcon;
+const iconMap: Record<string, LucideIcon> = {
+  MapPin,
+  House,
+  Ruler,
+  CalendarDays,
+};
+
+export type ProjectDetailInput = {
+  icon: string | LucideIcon;
   label: string;
   value: string;
 };
 
-type ProjectImage = {
+export type ProjectImage = {
   src: string;
   alt: string;
 };
 
-type ProjectData = {
+export type ProjectShowcaseData = {
   category: string;
   titleTop: string;
   titleAccent: string;
   description: string;
-  details: ProjectDetail[];
+  details: ProjectDetailInput[];
   images: ProjectImage[];
 };
 
-// Default project data
-const defaultProject: ProjectData = {
-  category: "Residential",
-  titleTop: "Modern",
-  titleAccent: "Luxury Villa",
-  description:
-    "A beautifully designed luxury villa that blends modern architecture with open spaces, natural light and elegant finishes to create a comfortable and stylish living experience.",
+const defaultProject: ProjectShowcaseData = projectsData.projects[0];
 
-  details: [
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Noida, Uttar Pradesh",
-    },
-    {
-      icon: House,
-      label: "Project Type",
-      value: "Residential Villa",
-    },
-    {
-      icon: Ruler,
-      label: "Built-up Area",
-      value: "5,500 Sq. Ft.",
-    },
-    {
-      icon: CalendarDays,
-      label: "Year",
-      value: "2024",
-    },
-  ],
-
-  images: [
-    {
-      src: "/proj-1.png",
-      alt: "Villa exterior with pool at dusk",
-    },
-    {
-      src: "/service-1.png",
-      alt: "Open living room with sofa seating",
-    },
-    {
-      src: "/ser-3.png",
-      alt: "Dining area with warm pendant lighting",
-    },
-    {
-      src: "/ser-5.jpg",
-      alt: "Master bedroom with cove lighting",
-    },
-  ],
-};
-
-// Animation variants
 const stagger: Variants = {
   hidden: {},
   show: {
@@ -131,7 +86,7 @@ const rise: Variants = {
 };
 
 type ProjectShowcaseProps = {
-  project?: ProjectData;
+  project?: ProjectShowcaseData;
 };
 
 export default function ProjectShowcase({
@@ -147,25 +102,19 @@ export default function ProjectShowcase({
   } = project;
 
   const reduce = useReducedMotion();
-
   const [active, setActive] = useState(0);
 
-  // Correctly typed DOM refs
   const stripRef = useRef<HTMLDivElement | null>(null);
-
   const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Safe active index derived directly during render
-  const activeIndex = images.length === 0 ? 0 : Math.min(active, images.length - 1);
+  const activeIndex =
+    images.length === 0 ? 0 : Math.min(active, images.length - 1);
 
-  // Navigate between images
   const goTo = (index: number) => {
     if (images.length === 0) return;
-
     setActive((index + images.length) % images.length);
   };
 
-  // Center the active thumbnail without scrolling the page
   useEffect(() => {
     const strip = stripRef.current;
     const thumb = thumbRefs.current[activeIndex];
@@ -174,13 +123,11 @@ export default function ProjectShowcase({
 
     strip.scrollTo({
       left:
-        thumb.offsetLeft -
-        (strip.clientWidth - thumb.clientWidth) / 2,
+        thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2,
       behavior: reduce ? "auto" : "smooth",
     });
   }, [activeIndex, reduce]);
 
-  // Swipe gestures on the main image
   const onDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
@@ -192,7 +139,6 @@ export default function ProjectShowcase({
     }
   };
 
-  // Handle an empty image array safely
   const activeImage = images[activeIndex];
 
   return (
@@ -209,10 +155,7 @@ export default function ProjectShowcase({
           className="order-2 lg:order-1"
         >
           {/* Category */}
-          <motion.div
-            variants={rise}
-            className="flex items-center gap-4"
-          >
+          <motion.div variants={rise} className="flex items-center gap-4">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#e8a93b] sm:text-sm">
               {category}
             </span>
@@ -237,13 +180,11 @@ export default function ProjectShowcase({
           {/* Title */}
           <motion.h2
             variants={rise}
-            className={`${playfair.className} mt-3  font-semibold leading-[1.1] text-3xl md:text-4xl`}
+            className={`${playfair.className} mt-3 text-3xl font-semibold leading-[1.1] md:text-4xl`}
           >
             {titleTop}
 
-            <span className="block text-[#f0b445]">
-              {titleAccent}
-            </span>
+            <span className="block text-[#f0b445]">{titleAccent}</span>
           </motion.h2>
 
           {/* Description */}
@@ -256,30 +197,37 @@ export default function ProjectShowcase({
 
           {/* Project details */}
           <ul className="mt-8 max-w-md">
-            {details.map(({ icon: Icon, label, value }) => (
-              <motion.li
-                key={label}
-                variants={rise}
-                whileHover={reduce ? undefined : { x: 6 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 22,
-                }}
-                className="flex items-center gap-5 border-b border-white/10 py-4 last:border-b-0"
-              >
-                <Icon
-                  aria-hidden="true"
-                  className="h-9 w-9 shrink-0 text-[#e8a93b]"
-                  strokeWidth={1.5}
-                />
+            {details.map(({ icon, label, value }) => {
+              const Icon =
+                typeof icon === "string"
+                  ? iconMap[icon] ?? MapPin
+                  : icon;
 
-                <div className="text-sm leading-snug">
-                  <p className="text-slate-300">{label}</p>
-                  <p className="text-white">{value}</p>
-                </div>
-              </motion.li>
-            ))}
+              return (
+                <motion.li
+                  key={label}
+                  variants={rise}
+                  whileHover={reduce ? undefined : { x: 6 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 22,
+                  }}
+                  className="flex items-center gap-5 border-b border-white/10 py-4 last:border-b-0"
+                >
+                  <Icon
+                    aria-hidden="true"
+                    className="h-9 w-9 shrink-0 text-[#e8a93b]"
+                    strokeWidth={1.5}
+                  />
+
+                  <div className="text-sm leading-snug">
+                    <p className="text-slate-300">{label}</p>
+                    <p className="text-white">{value}</p>
+                  </div>
+                </motion.li>
+              );
+            })}
           </ul>
         </motion.div>
 
@@ -309,9 +257,7 @@ export default function ProjectShowcase({
                   <motion.div
                     key={activeImage.src}
                     initial={
-                      reduce
-                        ? false
-                        : { opacity: 0, scale: 1.05 }
+                      reduce ? false : { opacity: 0, scale: 1.05 }
                     }
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
@@ -358,14 +304,12 @@ export default function ProjectShowcase({
                 return (
                   <button
                     key={img.src}
-                    // Important: braces prevent the callback
-                    // from returning HTMLButtonElement | null.
                     ref={(el) => {
                       thumbRefs.current[i] = el;
                     }}
                     type="button"
                     onClick={() => goTo(i)}
-                    aria-label={`Show image ${i + 1}: ${img.alt}`}
+                    aria-label={`${projectsData.showcase.showImageAriaPrefix} ${i + 1}: ${img.alt}`}
                     aria-current={isActive ? "true" : undefined}
                     className={`relative aspect-[4/3] shrink-0 basis-[calc((100%-1.5rem)/3)] overflow-hidden rounded-md border-2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a93b] lg:basis-[calc((100%-2.25rem)/4)] ${
                       isActive
@@ -389,13 +333,9 @@ export default function ProjectShowcase({
             <motion.button
               type="button"
               onClick={() => goTo(activeIndex + 1)}
-              aria-label="Next image"
-              whileHover={
-                reduce ? undefined : { scale: 1.08 }
-              }
-              whileTap={
-                reduce ? undefined : { scale: 0.92 }
-              }
+              aria-label={projectsData.showcase.nextImageAria}
+              whileHover={reduce ? undefined : { scale: 1.08 }}
+              whileTap={reduce ? undefined : { scale: 0.92 }}
               className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-[#e8a93b] text-[#e8a93b] transition-colors duration-300 hover:bg-[#e8a93b] hover:text-[#060d17] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a93b] sm:h-14 sm:w-14"
             >
               <ChevronRight

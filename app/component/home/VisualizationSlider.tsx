@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRef, useState } from "react";
@@ -9,6 +8,7 @@ import type { Swiper as SwiperInstance } from "swiper";
 import { A11y, Keyboard } from "swiper/modules";
 import { ChevronLeft, ChevronRight, Boxes } from "lucide-react";
 import { Libre_Baskerville, Barlow, Barlow_Condensed } from "next/font/google";
+import homeData from "@/app/data/home.json";
 
 import "swiper/css";
 
@@ -28,44 +28,8 @@ const condensed = Barlow_Condensed({
   variable: "--font-condensed",
 });
 
-// Put your images in /public/images/slider/
-const slides = [
-  {
-    eyebrow: "Modern",
-    title: "3D Visualizations",
-    text: "Interior inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.",
-    image: "/proj-1.png",
-    href: "/services/3d-visualizations",
-  },
-  {
-    eyebrow: "Contemporary",
-    title: "Interior Design",
-    text: "Interior inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.",
-   image: "/proj-1.png",
-    href: "/services/interior-design",
-  },
-  {
-    eyebrow: "Elegant",
-    title: "Exterior Design",
-    text: "Interior inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.",
-    image: "/proj-1.png",
-    href: "/services/exterior-design",
-  },
-  {
-    eyebrow: "Detailed",
-    title: "Architectural Plans",
-    text: "Interior inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.",
-   image: "/proj-1.png",
-    href: "/services/architectural-plans",
-  },
-  {
-    eyebrow: "Tailored",
-    title: "Custom Projects",
-    text: "Interior inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.",
-    image: "/proj-1.png",
-    href: "/services/custom-projects",
-  },
-];
+const slides = homeData.visualizationSlides;
+const { navigation } = homeData.projectSec;
 
 export default function VisualizationSlider() {
   const swiperRef = useRef<SwiperInstance | null>(null);
@@ -80,17 +44,17 @@ export default function VisualizationSlider() {
         <div className="mb-4 flex justify-end gap-4 lg:absolute lg:right-[6.3%] lg:top-[20px] lg:z-20 lg:mb-0">
           <button
             type="button"
-            aria-label="Previous slide"
+            aria-label={navigation.previousLabel}
             onClick={() => swiperRef.current?.slidePrev()}
-            className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#b9803a] text-white transition hover:bg-[#d09448] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d9a55b]"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#b9803a] text-white transition hover:bg-[#d09448] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d9a55b] sm:h-[60px] sm:w-[60px]"
           >
             <ChevronLeft size={26} strokeWidth={2.5} />
           </button>
           <button
             type="button"
-            aria-label="Next slide"
+            aria-label={navigation.nextLabel}
             onClick={() => swiperRef.current?.slideNext()}
-            className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#b9803a] text-white transition hover:bg-[#d09448] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d9a55b]"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#b9803a] text-white transition hover:bg-[#d09448] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d9a55b] sm:h-[60px] sm:w-[60px]"
           >
             <ChevronRight size={26} strokeWidth={2.5} />
           </button>
@@ -134,19 +98,19 @@ export default function VisualizationSlider() {
                       {slide.eyebrow}
                     </p>
 
-                    <h2 className="mt-6 font-[family-name:var(--font-serif)] text-4xl leading-tight text-white sm:text-5xl lg:text-[64px]">
+                    <h2 className="mt-6 font-[family-name:var(--font-serif)] text-3xl leading-tight text-white sm:text-5xl lg:text-[64px]">
                       {slide.title}
                     </h2>
 
-                    <p className="mt-8 max-w-[640px] text-lg leading-[2.4rem] text-white/50">
+                    <p className="mt-6 max-w-[640px] text-base leading-8 text-white/65 sm:mt-8 sm:text-lg">
                       {slide.text}
                     </p>
 
                     <Link
                       href={slide.href}
-                      className="mt-10 inline-block self-start border border-[#c4883c] px-8 py-5 font-[family-name:var(--font-condensed)] text-lg font-medium uppercase tracking-[0.2em] text-[#c4883c] transition hover:bg-[#c4883c] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d9a55b]"
+                      className="mt-8 inline-block self-start border border-[#c4883c] px-8 py-4 font-[family-name:var(--font-condensed)] text-lg font-medium uppercase tracking-[0.2em] text-[#c4883c] transition hover:bg-[#c4883c] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d9a55b]"
                     >
-                      Discover More
+                      {navigation.buttonText}
                     </Link>
                   </div>
                 </div>
@@ -159,7 +123,7 @@ export default function VisualizationSlider() {
         <div
           className="mt-6 flex justify-center gap-5 lg:absolute lg:left-[6.7%] lg:top-[648px] lg:mt-0 lg:w-[41.5%]"
           role="tablist"
-          aria-label="Slides"
+          aria-label={navigation.paginationAriaLabel}
         >
           {slides.map((slide, i) => (
             <button
@@ -167,7 +131,7 @@ export default function VisualizationSlider() {
               type="button"
               role="tab"
               aria-selected={active === i}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`${navigation.slideAriaPrefix} ${i + 1}`}
               onClick={() => swiperRef.current?.slideToLoop(i)}
               className={`h-4 w-4 rounded-full border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d9a55b] ${
                 active === i

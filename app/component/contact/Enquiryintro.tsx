@@ -1,35 +1,58 @@
 import Reveal from "@/app/component/contact/Reveal";
-import { Instagram, Facebook, Linkedin, Pinterest } from "@/app/component/contact/Socialicons";
-import { contactLines, intro } from "@/app/utills/Enquiry";
-import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
+import {
+  Instagram,
+  Facebook,
+  Linkedin,
+  Pinterest,
+} from "@/app/component/contact/Socialicons";
+import {
+  contactLines,
+  contactSection,
+  contactSocials,
+  intro,
+} from "@/app/utills/Enquiry";
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionHeiglightText,
+  SectionTitle,
+} from "../SectionHeader";
 
-const socials = [
-  { label: "Instagram", href: "#", Icon: Instagram },
-  { label: "Facebook", href: "#", Icon: Facebook },
-  { label: "LinkedIn", href: "#", Icon: Linkedin },
-  { label: "Pinterest", href: "#", Icon: Pinterest },
-];
+const socialIconMap = {
+  instagram: Instagram,
+  facebook: Facebook,
+  linkedin: Linkedin,
+  pinterest: Pinterest,
+} as const;
+
+const socials = contactSocials.map((s) => ({
+  ...s,
+  Icon: socialIconMap[s.icon as keyof typeof socialIconMap] ?? Instagram,
+}));
 
 export default function EnquiryIntro() {
   return (
     <div className="relative min-w-0">
       <Reveal>
-        <Eyebrow text="Get in touch" left={false} />
+        <Eyebrow text={contactSection.eyebrow} left={false} />
 
         <SectionTitle>
-          Start Your {" "}
-          <SectionHeiglightText text="Project With Us" />
+          {contactSection.title}{" "}
+          <SectionHeiglightText text={contactSection.accent} />
         </SectionTitle>
         <SectionDescription text={intro} />
       </Reveal>
-
-
 
       {/* contact details */}
       <ul className="mt-8 space-y-6">
         {contactLines.map(({ icon: Icon, main, sub }, i) => (
           <li key={main}>
-            <Reveal x={-30} y={0} delay={0.15 + i * 0.1} className="group flex items-start gap-5">
+            <Reveal
+              x={-30}
+              y={0}
+              delay={0.15 + i * 0.1}
+              className="group flex items-start gap-5"
+            >
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#d4a050] text-[#d4a050] transition-colors duration-300 group-hover:bg-[#d4a050] group-hover:text-[#14110c]">
                 <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
               </span>
@@ -48,14 +71,15 @@ export default function EnquiryIntro() {
 
       {/* divider + socials */}
       <Reveal delay={0.4}>
-        <span className="mt-8 block h-px w-64 bg-[#d4a050]" />
+        <span className="mt-8 block h-px w-full max-w-64 bg-[#d4a050]" />
         <ul className="mt-8 flex items-center gap-7">
           {socials.map(({ label, href, Icon }) => (
             <li key={label}>
               <a
                 href={href}
                 aria-label={label}
-                target="_blanck"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-white transition-all duration-300 hover:-translate-y-1 hover:text-[#d4a050] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4a050]"
               >
                 <Icon size={28} />
@@ -64,17 +88,6 @@ export default function EnquiryIntro() {
           ))}
         </ul>
       </Reveal>
-
-      {/* architectural illustration */}
-      {/* <Reveal scale={0.97} y={30} delay={0.3} className="relative mt-6 h-64 sm:h-80 lg:h-95">
-        <Image
-          src="/enquiry-now.png"
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 45vw, 100vw"
-          className="object-contain object-left-bottom"
-        />
-      </Reveal> */}
     </div>
   );
 }

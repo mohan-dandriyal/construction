@@ -1,9 +1,9 @@
-
 "use client";
 
 import { Playfair_Display, Inter } from "next/font/google";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { House, Sofa, Sun, TreePalm } from "lucide-react";
+import { House, Sofa, Sun, TreePalm, type LucideIcon } from "lucide-react";
+import projectsData from "@/app/data/projects.json";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -12,36 +12,26 @@ const playfair = Playfair_Display({
 });
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-/* ---------- Default content (replace with your own data / props) ---------- */
-const defaultData = {
-  specsEyebrow: "Project Specifications",
-  highlightsTitle: "Highlights of",
-  highlightsAccent: "This Project",
-  highlights: [
-    {
-      icon: House,
-      title: "Modern Architecture",
-      text: "Contemporary design with elegant and clean lines.",
-    },
-    {
-      icon: Sofa,
-      title: "Spacious Interiors",
-      text: "Open layouts with functional and stylish spaces.",
-    },
-    {
-      icon: Sun,
-      title: "Natural Lighting",
-      text: "Large windows for maximum natural light and ventilation.",
-    },
-    {
-      icon: TreePalm,
-      title: "Outdoor Living",
-      text: "Beautiful landscaped outdoor spaces and private pool.",
-    },
-  ],
+const iconMap: Record<string, LucideIcon> = {
+  House,
+  Sofa,
+  Sun,
+  TreePalm,
 };
 
-/* ---------- Animation variants ---------- */
+export type KeyFeaturesData = {
+  specsEyebrow: string;
+  highlightsTitle: string;
+  highlightsAccent: string;
+  highlights: {
+    icon: string | LucideIcon;
+    title: string;
+    text: string;
+  }[];
+};
+
+const defaultData: KeyFeaturesData = projectsData.projects[0].keyFeatures;
+
 const stagger = (gap = 0.1, delay = 0.1): Variants => ({
   hidden: {},
   show: { transition: { staggerChildren: gap, delayChildren: delay } },
@@ -51,12 +41,12 @@ const rise: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function KeyFeatures({ data = defaultData }) {
-  const {
-    highlightsTitle,
-    highlightsAccent,
-    highlights,
-  } = data;
+export default function KeyFeatures({
+  data = defaultData,
+}: {
+  data?: KeyFeaturesData;
+}) {
+  const { specsEyebrow, highlightsTitle, highlightsAccent, highlights } = data;
 
   const reduce = useReducedMotion();
   const initial = reduce ? "show" : "hidden";
@@ -65,10 +55,9 @@ export default function KeyFeatures({ data = defaultData }) {
   return (
     <div className="border-t border-white/10">
       <section
-        className={`${inter.className} overflow-hidden bg-[#050e17] px-4 py-8 text-white sm:px-6 sm:py-16 lg:px-10 lg:py-18`}
+        className={`${inter.className} overflow-hidden bg-[#050e17] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-10 lg:py-18`}
       >
         <div className="mx-auto max-w-7xl">
-
           <motion.div
             variants={rise}
             initial={initial}
@@ -86,7 +75,7 @@ export default function KeyFeatures({ data = defaultData }) {
               className="h-px w-14 bg-[#e8a93b] sm:w-16"
             />
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#e8a93b]">
-              {defaultData?.specsEyebrow}
+              {specsEyebrow}
             </span>
           </motion.div>
 
@@ -96,7 +85,7 @@ export default function KeyFeatures({ data = defaultData }) {
             initial={initial}
             whileInView="show"
             viewport={viewport}
-            className={`${playfair.className} mt-4 font-semibold leading-tight text-3xl md:text-4xl`}
+            className={`${playfair.className} mt-4 text-3xl font-semibold leading-tight md:text-4xl`}
           >
             {highlightsTitle}{" "}
             <span className="text-[#f0b445]">{highlightsAccent}</span>
@@ -109,29 +98,39 @@ export default function KeyFeatures({ data = defaultData }) {
             viewport={viewport}
             className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
           >
-            {highlights.map(({ icon: Icon, title, text }) => (
-              <motion.li
-                key={title}
-                variants={rise}
-                whileHover={reduce ? undefined : { y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                className="rounded-lg border border-white/10 bg-white/[0.03] p-6 transition-colors duration-300 hover:border-[#e8a93b]/50"
-              >
-                <motion.span
-                  whileHover={reduce ? undefined : { rotate: 360 }}
-                  transition={{ duration: 0.7, ease: "easeInOut" }}
-                  className="grid h-[72px] w-[72px] place-items-center rounded-full border border-[#e8a93b] text-[#e8a93b]"
-                >
-                  <Icon className="h-8 w-8" strokeWidth={1.5} aria-hidden="true" />
-                </motion.span>
-                <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-base leading-relaxed text-slate-300">
-                  {text}
-                </p>
-              </motion.li>
-            ))}
-          </motion.ul>
+            {highlights.map(({ icon, title, text }) => {
+              const Icon =
+                typeof icon === "string" ? iconMap[icon] ?? House : icon;
 
+              return (
+                <motion.li
+                  key={title}
+                  variants={rise}
+                  whileHover={reduce ? undefined : { y: -6 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                  className="rounded-lg border border-white/10 bg-white/[0.03] p-6 transition-colors duration-300 hover:border-[#e8a93b]/50"
+                >
+                  <motion.span
+                    whileHover={reduce ? undefined : { rotate: 360 }}
+                    transition={{ duration: 0.7, ease: "easeInOut" }}
+                    className="grid h-[72px] w-[72px] place-items-center rounded-full border border-[#e8a93b] text-[#e8a93b]"
+                  >
+                    <Icon
+                      className="h-8 w-8"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </motion.span>
+                  <h3 className="mt-5 text-lg font-semibold text-white">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-slate-300">
+                    {text}
+                  </p>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
         </div>
       </section>
     </div>

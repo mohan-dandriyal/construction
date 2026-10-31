@@ -4,9 +4,8 @@ import GallerySection from "../component/gallery/GallerySection";
 import siteData from "@/app/data/site.json";
 
 export const metadata: Metadata = {
-  title: "Project Gallery | Arcova Architecture Studio",
-  description:
-    "Explore our visual portfolio of architectural designs, luxury villa transformations, and premium bespoke interiors.",
+  title: siteData.pageHeroes.gallery.metaTitle,
+  description: siteData.pageHeroes.gallery.metaDescription,
 };
 
 export default function GalleryPage() {

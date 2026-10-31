@@ -13,12 +13,15 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import service from "@/app/data/services.json"
-
+import service from "@/app/data/services.json";
 import ServiceCard from "@/app/component/home/ServiceCard";
-
 import { Playfair_Display, Poppins } from "next/font/google";
-import { Eyebrow, SectionDescription, SectionHeiglightText, SectionTitle } from "../SectionHeader";
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionHeiglightText,
+  SectionTitle,
+} from "../SectionHeader";
 
 const serif = Playfair_Display({
   subsets: ["latin"],
@@ -32,9 +35,8 @@ const sans = Poppins({
   variable: "--font-sans",
 });
 
-const PAGE_SIZE = 6; // services shown at one time
+const PAGE_SIZE = 6;
 const serviceIcons = [House, Leaf, Warehouse, Box, Sofa, PencilRuler];
-
 
 function Services() {
   const reduceMotion = useReducedMotion();
@@ -57,12 +59,10 @@ function Services() {
   return (
     <section
       ref={sectionRef}
-      id="services"
+      id={service.section.id}
       className={`${serif.variable} ${sans.variable} bg-[#0a0e13] px-4 py-16 font-[family-name:var(--font-sans)] text-white sm:px-8`}
     >
       <div className="mx-auto max-w-350">
-       
-
         <div>
           <div className="flex justify-center">
             <Eyebrow text={service.section.eyebrow} />
@@ -73,16 +73,21 @@ function Services() {
             <SectionHeiglightText text={service.section.accent} />
           </SectionTitle>
 
-          <SectionDescription className="lg:w-6/12 sm:w-8/12 mx-auto text-center" text={service.section.description} />
+          <SectionDescription
+            className="mx-auto text-center sm:w-8/12 lg:w-6/12"
+            text={service.section.description}
+          />
         </div>
 
         {/* Grid */}
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleServices.map((service, i) => (
-            // global index in the key: some titles repeat, and it remounts cards on page change
+          {visibleServices.map((item, i) => (
             <ServiceCard
               key={start + i}
-              service={{ ...service, icon: serviceIcons[(start + i) % serviceIcons.length] }}
+              service={{
+                ...item,
+                icon: serviceIcons[(start + i) % serviceIcons.length],
+              }}
               index={i}
               total={visibleServices.length}
             />
@@ -92,12 +97,12 @@ function Services() {
         {/* ---------- Pagination ---------- */}
         {totalPages > 1 && (
           <nav
-            aria-label="Services pagination"
+            aria-label={service.section.paginationAriaLabel}
             className="mt-12 flex items-center justify-center gap-3"
           >
             {page > 1 && (
               <PageButton
-                label="Previous page"
+                label={service.section.prevPageLabel}
                 onClick={() => goToPage(page - 1)}
                 reduceMotion={reduceMotion}
                 muted
@@ -109,7 +114,7 @@ function Services() {
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
               <PageButton
                 key={n}
-                label={`Page ${n}`}
+                label={`${service.section.pagePrefix} ${n}`}
                 active={n === page}
                 onClick={() => goToPage(n)}
                 reduceMotion={reduceMotion}
@@ -120,7 +125,7 @@ function Services() {
 
             {page < totalPages && (
               <PageButton
-                label="Next page"
+                label={service.section.nextPageLabel}
                 onClick={() => goToPage(page + 1)}
                 reduceMotion={reduceMotion}
                 muted
@@ -158,12 +163,13 @@ function PageButton({
       aria-current={active ? "page" : undefined}
       whileHover={reduceMotion ? undefined : { scale: 1.08 }}
       whileTap={reduceMotion ? undefined : { scale: 0.94 }}
-      className={`grid h-11 w-11 place-items-center rounded-full border text-base font-medium transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d9a55b] ${active
+      className={`grid h-11 w-11 place-items-center rounded-full border text-base font-medium transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d9a55b] ${
+        active
           ? "border-[#d9a55b] bg-[#d9a55b] text-[#1b1b1b]"
           : muted
-            ? "border-white/20 text-white hover:border-[#d9a55b] hover:text-[#d9a55b]"
-            : "border-white/40 text-white/90 hover:border-[#d9a55b] hover:text-[#d9a55b]"
-        }`}
+          ? "border-white/20 text-white hover:border-[#d9a55b] hover:text-[#d9a55b]"
+          : "border-white/40 text-white/90 hover:border-[#d9a55b] hover:text-[#d9a55b]"
+      }`}
     >
       {children}
     </motion.button>

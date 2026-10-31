@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { teamSectionData } from "@/app/utills/teams";
 
 type Props = {
   page: number;
@@ -11,13 +12,18 @@ type Props = {
   label?: string;
 };
 
-export default function Pagination({ page, totalPages, onChange, label = "Pagination" }: Props) {
+export default function Pagination({
+  page,
+  totalPages,
+  onChange,
+  label = teamSectionData.paginationAriaLabel,
+}: Props) {
   if (totalPages <= 1) return null;
 
   return (
     <nav aria-label={label} className="mt-10 flex items-center justify-center gap-3">
       <PageButton
-        label="Previous page"
+        label={teamSectionData.prevPageLabel}
         disabled={page === 1}
         onClick={() => onChange(page - 1)}
         tone="light"
@@ -28,7 +34,7 @@ export default function Pagination({ page, totalPages, onChange, label = "Pagina
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
         <PageButton
           key={n}
-          label={`Page ${n}`}
+          label={`${teamSectionData.pagePrefix} ${n}`}
           active={n === page}
           onClick={() => onChange(n)}
         >
@@ -37,7 +43,7 @@ export default function Pagination({ page, totalPages, onChange, label = "Pagina
       ))}
 
       <PageButton
-        label="Next page"
+        label={teamSectionData.nextPageLabel}
         disabled={page === totalPages}
         onClick={() => onChange(page + 1)}
         tone="gold"
