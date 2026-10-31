@@ -21,7 +21,7 @@
       },
       "phone": {
         "label": "Phone Number",
-        "placeholder": "+1 213 555 1234",
+        "placeholder": "+1 000000000",
         "error": "Please enter a valid phone number."
       },
       "email": {
@@ -68,7 +68,7 @@
   "contactLines": [
     {
       "kind": "phone",
-      "main": "+1 213 555 1234",
+      "main": "+1 000000000",
       "sub": [
         "Mon - Sat: 9:00 AM - 6:00 PM",
         "Sunday: Closed"
@@ -76,7 +76,7 @@
     },
     {
       "kind": "mail",
-      "main": "info@arcova.com",
+      "main": "info@xyz.com",
       "sub": [
         "We reply within 24 hours"
       ]
@@ -85,7 +85,7 @@
       "kind": "location",
       "main": "123, Design Avenue,",
       "sub": [
-        "2309 Mayflower Dr, Lynchburg, VA 24501, United States"
+        "3170 Rosewood Lane Unit 200 , Beverly Hills, CA 90210"
       ]
     }
   ],

@@ -98,7 +98,7 @@
         "id": "phone",
         "icon": "phone",
         "lines": [
-          "+1 213 555 1234",
+          "+1 000000000",
           "Mon - Sat, 9:00 AM - 6:00 PM"
         ]
       },
@@ -106,7 +106,7 @@
         "id": "email",
         "icon": "mail",
         "lines": [
-          "info@arcova.com",
+          "info@xyz.com",
           "Send us your project enquiry"
         ]
       },
@@ -114,7 +114,7 @@
         "id": "location",
         "icon": "location",
         "lines": [
-          "2309 Mayflower Dr, Lynchburg, VA 24501, United States"
+          "3170 Rosewood Lane Unit 200 , Beverly Hills, CA 90210"
         ]
       }
     ],

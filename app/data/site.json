@@ -122,12 +122,12 @@
       {
         "kind": "phone",
         "label": "Call Now",
-        "value": "+1 213 555 1234"
+        "value": "+1 000000000"
       },
       {
         "kind": "mail",
         "label": "Send Email",
-        "value": "info@arcova.com"
+        "value": "info@xyz.com"
       },
       {
         "kind": "clock",
@@ -178,6 +178,6 @@
         "href": "/contact"
       }
     ],
-    "copyright": "© 2026 Arcova Architecture Studio. All Rights Reserved."
+    "copyright": "© 2026 Arcova Architecture Studio. All Rights Reserved. Powered by Lestow"
   }
 }
